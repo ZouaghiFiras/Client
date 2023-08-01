@@ -1,0 +1,15 @@
+<kendo-dialog (close)="close('cancel')" *ngIf="opened" class="generic-dialog-dropdwon">
+  <div [formGroup]="dropDownForm" class="example-wrapper">
+    <p class="row no-gutters formheader"> {{headerMessage}}</p>
+    <kendo-dropdownlist [data]="list" [textField]="'name'" formControlName="value"></kendo-dropdownlist>
+    <span *ngIf="dropDownForm.get('value').errors
+      && dropDownForm.get('value').touched
+      && dropDownForm.get('value').errors.required" class="req row no-gutters">
+      {{errorMessage}}
+    </span>
+  </div>
+  <kendo-dialog-actions>
+    <button (click)="close('no')" kendoButton>{{ 'Common.Cancel' | translate }}</button>
+    <button (click)="close('yes')" kendoButton primary="true">{{ 'Common.Confirm' | translate }}</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

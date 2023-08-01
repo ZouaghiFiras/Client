@@ -1,0 +1,9 @@
+:host {
+  .dashboard-container {
+    height: calc(100vh - 45px);
+    width: calc(100vw - 48px);
+    margin: 0px;
+    padding: 0px;
+    overflow-x: unset;
+  }
+}

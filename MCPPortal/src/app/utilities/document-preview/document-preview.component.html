@@ -1,0 +1,31 @@
+<div class="flex-wrap d-flex justify-content-around align-items-center">
+  <app-empty-documents *ngIf="!data.length"></app-empty-documents>
+  <div *ngIf="data.length">
+    <div *ngFor="let item of data" class="card">
+      <div class="card-img">
+        <img
+          (click)="open('dialog')"
+          *ngIf="!dialogOpened"
+          alt="document attachment"
+          src="../../../assets/img/avatars/file-preview.png"
+          width="200"
+        />
+      </div>
+      <kendo-dialog
+        (close)="close('dialog')"
+        *ngIf="dialogOpened"
+        [height]="600"
+        [width]="800"
+        title="See document"
+      >
+        <div class="k-iframe w-100 h-100">
+          <div id="example1"></div>
+          <iframe [src]="item" class="iframe"></iframe>
+        </div>
+      </kendo-dialog>
+      <div class="card-footer ced-bg-color-white">
+        <p class="ced-label-strong small">{{ item }}</p>
+      </div>
+    </div>
+  </div>
+</div>

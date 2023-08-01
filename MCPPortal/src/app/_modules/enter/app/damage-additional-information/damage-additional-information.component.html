@@ -1,0 +1,60 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+<app-wizard-step [title]="title" (previousStepClicked)="goToPreviousStep()" (nextStepClicked)="goToNextStep()">
+
+  <form [formGroup]="damageAdditionalInformationForm" [attr.aria-label]="title">
+
+
+    <section>
+      <h2>Additional Information</h2>
+      <div class="form-group">
+        <label>
+          <span>Case Number</span>
+          <input type="text" class="form-control" formControlName="caseNumber">
+        </label>
+        <!-- Add validation span for caseNumber -->
+        <span class="text-danger" *ngIf="submitted && damageAdditionalInformationForm.get('caseNumber').invalid">Please enter a case number.</span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Order Number</span>
+          <input type="text" class="form-control" formControlName="orderNumber">
+        </label>
+        <!-- Add validation span for orderNumber -->
+        <span class="text-danger" *ngIf="submitted && damageAdditionalInformationForm.get('orderNumber').invalid">Please enter an order number.</span>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" formControlName="rightOfRecovery">
+          Right of Recovery ?
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Total Estimated Damage Amount</span>
+          <input type="text" class="form-control" formControlName="estimatedDamageAmount">
+        </label>
+        <!-- Add validation span for estimatedDamageAmount -->
+        <span class="text-danger" *ngIf="submitted && damageAdditionalInformationForm.get('estimatedDamageAmount').invalid">Please enter a valid estimated damage amount.</span>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" formControlName="damageDateUnknown">
+          Damage Date Unknown
+        </label>
+      </div>
+
+      <div class="form-group" *ngIf="!damageDateUnknownCtrl.value">
+        <label>
+          <span>*Damage Date</span>
+          <input type="date" class="form-control" formControlName="damageDate">
+        </label>
+        <!-- Add validation span for damageDate -->
+        <span class="text-danger" *ngIf="submitted && damageAdditionalInformationForm.get('damageDate').invalid">Please select a damage date.</span>
+      </div>
+    </section>
+  </form>
+</app-wizard-step>

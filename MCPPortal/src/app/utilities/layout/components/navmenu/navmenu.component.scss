@@ -1,0 +1,269 @@
+/*
+    square buttons
+*/
+
+.dropdown-menu {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 300px;
+}
+
+.btn-sq-ced {
+  margin: 4px;
+}
+
+.btn-ced-sq {
+  float: left;
+  transition: all 0.2s ease-in-out;
+}
+
+// .btn-ced-sq:hover {
+//     transform: scale(1.05);
+// }
+
+.btn-ced-sq a {
+  position: relative;
+  display: block;
+  width: 88px !important;
+  height: 88px !important;
+}
+
+.btn-ced-sq a span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-ced-sq a div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn.btn-sq-md {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 88px !important;
+  height: 88px !important;
+}
+
+.btn-sq-lg {
+  width: 150px !important;
+  height: 150px !important;
+  color: #fff !important;
+  margin-bottom: 3px;
+}
+
+.btn-sq {
+  width: 88px !important;
+  height: 88px !important;
+  font-size: 10px;
+  color: #fff !important;
+  margin-bottom: 3px;
+}
+
+.btn-sq-sm {
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 10px;
+  color: #fff !important;
+  margin-bottom: 3px;
+}
+
+.btn-sq-xs {
+  width: 25px !important;
+  height: 25px !important;
+  padding: 2px;
+  color: #fff !important;
+  margin-bottom: 3px;
+}
+
+/*
+    awesome
+*/
+
+.fa-2 {
+  font-size: 2em !important;
+}
+
+.fa-3 {
+  font-size: 4em !important;
+}
+
+.fa-5 {
+  font-size: 12em !important;
+}
+
+//
+//
+//
+$red: #f44336;
+@mixin transition($in) {
+  transition: $in;
+  -webkit-transition: $in;
+  -moz-transition: $in;
+  -o-transition: $in;
+  -ms-transition: $in;
+}
+
+@mixin transform($in) {
+  transform: $in;
+  -webkit-transform: $in;
+  -moz-transform: $in;
+  -o-transform: $in;
+  -ms-transform: $in;
+}
+
+@mixin animation($in) {
+  animation: $in;
+  -webkit-animation: $in;
+  -moz-animation: $in;
+  -o-animation: $in;
+  -ms-animation: $in;
+}
+
+.myButt {
+  outline: none;
+  border: none;
+  padding: 30px;
+  display: block;
+  //margin:50px auto;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #3899dd;
+  position: relative;
+  border: 2px solid #fff;
+
+  @include transition(all 0.5s ease);
+}
+
+.five {
+  overflow: hidden;
+  color: #fff;
+
+  .layer {
+    color: #fff;
+    position: absolute;
+    top: -100px;
+    height: 96px;
+    width: 100%;
+    left: 0;
+    padding: 26px 0;
+    background-color: #86bc35;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include transition(all 0.3s ease);
+  }
+
+  &:hover {
+    .layer {
+      top: 0;
+    }
+  }
+}
+
+// loader
+.ced-loader,
+.ced-loader:before,
+.ced-loader:after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  display: none;
+}
+
+.ced-loader {
+  // position:fixed;
+  width: 32px;
+  height: 32px;
+  margin: 6px;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.ced-loader:before {
+  border: 5px solid #aaa;
+  border-bottom: 5px solid orange;
+  border-left: 5px solid orange;
+  animation: spin1 1s linear infinite;
+}
+
+.ced-loader:after {
+  border: 5px solid #aaa;
+  border-top: 5px solid transparent;
+  border-right: 5px solid transparent;
+  animation: spin2 1s linear infinite;
+}
+
+@keyframes spin1 {
+  20% {
+    transform: rotate(150deg);
+  }
+  40% {
+    transform: rotate(300deg);
+  }
+  80% {
+    transform: rotate(300deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    transform: rotate(-30deg);
+  }
+  20% {
+    transform: rotate(-30deg);
+    border-color: transparent transparent #aaa #aaa;
+  }
+  21% {
+    border-color: orange orange transparent transparent;
+  }
+  40% {
+    transform: rotate(-30deg);
+  }
+  60% {
+    transform: rotate(120deg);
+    border-color: orange orange transparent transparent;
+  }
+  61% {
+    border-color: transparent transparent #aaa #aaa;
+  }
+  80% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(330deg);
+  }
+}
+
+.k-dialog-button-layout-stretched .k-primary:not(:hover):not(.k-state-hover):not(:active):not(.k-state-active) {
+  color: white;
+  background-color: #3899dd;
+}
+
+.k-button.k-primary {
+  border-color: #3899dd;
+  border-style: solid;
+  border-width: 1.5px;
+}

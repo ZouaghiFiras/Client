@@ -1,0 +1,34 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+<app-wizard-step [title]="title"
+                 (previousStepClicked)="goToPreviousStep()"
+                 (nextStepClicked)="goToNextStep()"
+>
+  <form [formGroup]="productCoverageForm" [attr.aria-label]="title">
+
+    <section>
+      <div class="form-group">
+        <label>
+          <span>What is the coverage?</span>
+        </label>
+        <div class="row">
+          <ng-container *ngFor="let coverage of coverageNamesAndIcons">
+            <div class="col-md-3">
+              <div class="card text-center d-flex flex-column h-100">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ coverage.name }}</h5>
+                  <span class="{{coverage.icon}}" style="font-size: 3rem;"></span>
+                  <input type="radio" formControlName="coverage" [value]="coverage.name" (click)="selectCoverage(coverage.id,coverage.code)">
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <span class="text-danger form-error" *ngIf="submitted && coverageCtrl?.errors?.required">
+          Please select a coverage.
+        </span>
+      </div>
+    </section>
+
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</app-wizard-step>

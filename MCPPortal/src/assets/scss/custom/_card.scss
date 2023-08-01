@@ -1,0 +1,50 @@
+h5.card-title.viewer {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card-subtitle.viewer {
+  font-size: 12px;
+}
+
+h5.card-title {
+  font-size: 1.0rem;
+}
+
+.card {
+  border: 1px !important;
+  border-radius: 0;
+}
+
+.card-header {
+  border-radius: 0;
+}
+
+.card-header:first-child {
+  border-radius: 0;
+}
+
+.prospect-card {
+  margin: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 rgba(183, 192, 206, .8);
+  -webkit-box-shadow: 0 0 5px 0 rgba(183, 192, 206, .8);
+  -moz-box-shadow: 0 0 5px 0 rgba(183, 192, 206, .8);
+  -ms-box-shadow: 0 0 5px 0 rgba(183, 192, 206, .8);
+}
+
+.prospect-card-title {
+  color: #000;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.padding-cards {
+  padding: 16px !important;
+}
+
+.padding-left {
+  padding-left: 8px !important;
+}

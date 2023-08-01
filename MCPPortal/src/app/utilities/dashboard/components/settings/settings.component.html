@@ -1,0 +1,35 @@
+<div class="animated fadeIn yespadding">
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div class="card animated cedfadeInUp white-box" style="height: calc(100vh - 6.5em);">
+        <div class="card-header">
+          <strong>Roles</strong>
+        </div>
+        <div class="card-block h-100" style="overflow-y: auto;">
+
+          <div class="form-group row nopadding ced-settings-role-bar white-box">
+            <label class="col-2 col-form-label">Search</label>
+            <div class="col-4">
+              <input [(ngModel)]="searchText"
+                     class="form-control ced-form-control"
+                     kendoTextBox
+                     placeholder="Enter roll name">
+            </div>
+          </div>
+
+          <div class="row">
+            <div *ngFor="let role of profileRoles | filter : searchText" class="form-group col-md-4">
+              <input [value]="role" class="k-textbox form-control" disabled="disabled"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+
+  </div>
+  <!--/.row-->
+
+</div>

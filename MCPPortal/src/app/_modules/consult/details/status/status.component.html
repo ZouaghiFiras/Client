@@ -1,0 +1,17 @@
+<div class="card flex-wrap">
+  <div class="card-header brand-title text-gray-dark">{{ 'Details.STATUS' | translate }}</div>
+  <div class="card-body">
+    <kendo-stepper [currentStep]="currentStatusIndex" [steps]="statuses" orientation="vertical"
+                   stepType="full"></kendo-stepper>
+  </div>
+  <div class="card-footer ced-bg-color-white row flex-wrap">
+    <button class="btn btn-primary small">
+      {{ 'Details.LOGS' | translate }}
+      <i class="fa fa-chevron-right"></i>
+    </button>
+    <button class="btn btn-primary small">
+      {{ 'Details.COMMENTS' | translate }}
+      <i class="fa fa-chevron-right"></i>
+    </button>
+  </div>
+</div>

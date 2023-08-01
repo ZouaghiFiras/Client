@@ -1,0 +1,18 @@
+<kendo-dropdownlist
+  (valueChange)="switchLanguage()"
+  [(ngModel)]="selectedLanguage"
+  [valuePrimitive]="false"
+  [data]="languages"
+  aria-labelledby="languageDropdown"
+  class="form-control"
+  style="width: 120px;"
+>
+  <ng-template kendoDropDownListItemTemplate let-dataItem>
+    <img alt="flag" class="mr-2" height="10" src="{{ dataItem.image }}" width="15">
+    {{ dataItem.name }}
+  </ng-template>
+  <ng-template kendoDropDownListValueTemplate>
+    <img alt="flag" class="mr-2" height="24" src="{{ selectedLanguage.image }}" width="30">
+    {{ selectedLanguage.name }}
+  </ng-template>
+</kendo-dropdownlist>

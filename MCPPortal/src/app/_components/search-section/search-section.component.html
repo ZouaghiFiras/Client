@@ -1,0 +1,52 @@
+<div class="card mb-4 k-shadow nopadding vh-100">
+  <div class="card-header ced-bg-color-white d-flex justify-content-between">
+    <h3 class="text-gray-dark font-weight-bold">{{ 'SearchSection.TITLE' | translate }}</h3>
+    <a (click)="clearForm()" class="text-primary">
+      <span class="fas fa-times mr-1"></span>{{ 'SearchSection.CLEAR' | translate }}
+    </a>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" [formGroup]="searchForm" class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4 form-group">
+        <label class="font-weight-bold" for="orderNumber">{{ 'SearchSection.FIELD_1' | translate }} :</label>
+        <input class="form-control" formControlName="orderNumber" id="orderNumber" placeholder="{{ 'SearchSection.FIELD_1' | translate }}" type="text">
+        <span *ngIf="searchForm.get('orderNumber').touched && searchForm.get('orderNumber').invalid" class="text-danger">{{ 'SearchSection.VALIDATION_ERROR' | translate: {fieldName: 'SearchSection.FIELD_1'} }}</span>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 form-group">
+        <label class="font-weight-bold" for="policyNumber">{{ 'SearchSection.FIELD_2' | translate }} :</label>
+        <input class="form-control" formControlName="policyNumber" id="policyNumber" placeholder="{{ 'SearchSection.FIELD_2' | translate }}" type="text">
+        <span *ngIf="searchForm.get('policyNumber').touched && searchForm.get('policyNumber').invalid" class="text-danger">{{ 'SearchSection.VALIDATION_ERROR' | translate: {fieldName: 'SearchSection.FIELD_2'} }}</span>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 form-group">
+        <label class="font-weight-bold" for="caseNumber">{{ 'SearchSection.FIELD_3' | translate }} :</label>
+        <input class="form-control" formControlName="caseNumber" id="caseNumber" placeholder="{{ 'SearchSection.FIELD_3' | translate }}" type="text">
+        <span *ngIf="searchForm.get('caseNumber').touched && searchForm.get('caseNumber').invalid" class="text-danger">{{ 'SearchSection.VALIDATION_ERROR' | translate: {fieldName: 'SearchSection.FIELD_3'} }}</span>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 form-group">
+        <label class="font-weight-bold" for="postalCode">{{ 'SearchSection.FIELD_4' | translate }} :</label>
+        <input class="form-control" formControlName="postalCode" id="postalCode" placeholder="{{ 'SearchSection.FIELD_4' | translate }}" type="text">
+        <span *ngIf="searchForm.get('postalCode').touched && searchForm.get('postalCode').invalid" class="text-danger">{{ 'SearchSection.VALIDATION_ERROR' | translate: {fieldName: 'SearchSection.FIELD_4'} }}</span>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 form-group">
+        <label class="font-weight-bold" for="houseNumber">{{ 'SearchSection.FIELD_5' | translate }} :</label>
+        <input class="form-control" formControlName="houseNumber" id="houseNumber" placeholder="{{ 'SearchSection.FIELD_5' | translate }}" type="text">
+        <span *ngIf="searchForm.get('houseNumber').touched && searchForm.get('houseNumber').invalid" class="text-danger">{{ 'SearchSection.VALIDATION_ERROR' | translate: {fieldName: 'SearchSection.FIELD_5'} }}</span>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 form-group">
+        <label class="font-weight-bold" for="assignmentNumber">{{ 'SearchSection.FIELD_6' | translate }} :</label>
+        <input class="form-control" formControlName="assignmentNumber" id="assignmentNumber" placeholder="{{ 'SearchSection.FIELD_6' | translate }}" type="text">
+        <span *ngIf="searchForm.get('assignmentNumber').touched && searchForm.get('assignmentNumber').invalid" class="text-danger">{{ 'SearchSection.VALIDATION_ERROR' | translate: {fieldName: 'SearchSection.FIELD_6'} }}</span>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer ced-bg-color-white">
+    <div class="d-flex justify-content-end">
+      <button (click)="onSubmitWorkInProgress()" class="btn btn-outline-primary mr-2" type="button">
+        {{ 'SearchSection.BUTTON_WORK_IN_PROGRESS' | translate }}
+      </button>
+      <button (click)="onSubmit()" [disabled]="!searchForm.valid" class="btn btn-primary" type="submit">
+        {{ 'SearchSection.BUTTON_SEARCH' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

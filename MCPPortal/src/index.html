@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+<head>
+  <!------ Include Jquery for the Tree View ---------->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+  <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+
+  <base href="/">
+  <!-- Set the base href -->
+  <script>
+    document.write('<base href="' + document.location + '"/>');
+  </script>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="MCP" name="description">
+  <meta content="CED Europe" name="author">
+  <meta content="MCP Portal" name="keyword">
+  <link href="assets/img/favicon.png" rel="shortcut icon">
+
+  <!-- facebook and other social sites -->
+  <meta content="website" property="og:type">
+  <meta content="CED Europe" property="og:site_name">
+  <meta content="MCP Portal" property="og:title">
+  <meta content="MCP Portal" property="og:description">
+  <meta name="og:url" property="og:url">
+
+  <title>MCP Portal</title>
+
+  <meta content="MCP" property="og:title">
+  <meta content="MCP" property="og:description">
+  <meta name="og:url" property="og:url">
+
+  <!--  <title>MCP Portal</title>-->
+  <!-- Custom _styles -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="app header-fixed" id="cedbody" style="margin: 0;overflow-y: auto!important;">
+<!-- Enable bootstrap 4 theme -->
+<script>
+  window.__theme = 'bs4';
+</script>
+<app-redirect></app-redirect>
+<app-root></app-root>
+
+<div id="preloader-container">
+  <style type="text/css">
+    #preloader-container {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      background-color: rgba(255, 255, 255, 0.95);
+      transition: all linear 300ms;
+      -webkit-transition: all linear 300ms;
+      z-index: 999999;
+    }
+
+    .spinner-a {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: white;
+    }
+
+    .preloader-anim {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #preloader-container.loaded {
+      opacity: 0.0;
+    }
+
+    .lds-dual-ring {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+    }
+
+    .lds-dual-ring:after {
+      content: " ";
+      display: block;
+      width: 32px;
+      height: 32px;
+      margin: 1px;
+      border-radius: 50%;
+      border: 5px solid #3498db;
+      border-color: #3498db transparent #3498db transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+
+    @keyframes lds-dual-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <div class="spinner-a preloader-anim">
+    <div class="lds-dual-ring"></div>
+  </div>
+</div>
+</body>
+
+</html>

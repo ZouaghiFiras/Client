@@ -1,0 +1,43 @@
+::ng-deep .interruptionPopup .k-widget.k-window.k-dialog.ng-trigger.ng-trigger-dialogSlideInAppear {
+  width: 25% !important;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 5px 10px 0 rgba(0, 0, 0, 0.12),
+  0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  border-width: 1px;
+  border-style: solid;
+  border-color: gray;
+}
+
+.interruption-pop-up-pad {
+  padding: 2%;
+  font-size: 15px;
+}
+
+.interruption-pop-up-pad .k-dropdown {
+  width: 100%;
+}
+
+.interruptionPopup .k-timepicker {
+  width: 100%;
+}
+
+.warningMsg {
+  text-align: right;
+  font-size: smaller;
+  color: red;
+}
+
+.check-circle {
+  color: green;
+  font-size: 30px;
+  text-align: center;
+}
+
+.times-circle {
+  color: red;
+  font-size: 30px;
+  text-align: center;
+}
+
+.div-align {
+  vertical-align: middle;
+}

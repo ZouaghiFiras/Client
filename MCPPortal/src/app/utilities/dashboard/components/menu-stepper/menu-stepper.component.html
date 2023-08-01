@@ -1,0 +1,16 @@
+<div class="animated fadeIn" style="height: 100%;">
+  <div class="menu-stepper" style="width: 240px; align-items: right; min-height: 100%; min-width: 80px">
+    <br> <br>
+    <div class="panelbar-wrapper">
+      <kendo-panelbar *ngFor="let item of menus" style="border-width: 0; color: white;">
+        <hr/>
+        <kendo-panelbar-item [title]="item.menuTitle|translate" expanded="true"
+                             style="border-width: 0; font-size: 15px;">
+          <kendo-panelbar-item *ngFor="let step of item.steps" [icon]="step.stepIcon" [routerLink]="[step.stepRouterLink]"
+                               [title]="step.stepTitle|translate" style="font-size: 12px;">
+          </kendo-panelbar-item>
+        </kendo-panelbar-item>
+      </kendo-panelbar>
+    </div>
+  </div>
+</div>

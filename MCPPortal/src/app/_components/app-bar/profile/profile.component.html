@@ -1,0 +1,23 @@
+<kendo-dropdownlist
+  (valueChange)="onSelect($event)"
+  [(ngModel)]="selectedMenuItem"
+  [valuePrimitive]="false"
+  [data]="menuItems"
+  aria-labelledby="profileDropdown"
+  class="form-control"
+  style="width: 200px;"
+>
+  <ng-template kendoDropDownListItemTemplate let-dataItem>
+    <div class="d-flex justify-content-start align-items-center">
+      <span class="k-icon {{ dataItem.icon }}"></span>
+      {{ dataItem.text }}
+    </div>
+  </ng-template>
+  <ng-template kendoDropDownListValueTemplate>
+    <div class="d-flex align-items-center justify-content-between">
+      <kendo-avatar [imageSrc]="avatarUrl" height="30px" shape="circle" width="30px"></kendo-avatar>
+      <div class="mb-0 header-title ced-label-strong">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ username  }}</div>
+    </div>
+  </ng-template>
+</kendo-dropdownlist>
+

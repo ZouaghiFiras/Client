@@ -1,0 +1,105 @@
+<!-- <form class="k-form col-md-12" [formGroup]="formGroup"
+  [ngClass]="{'no-padding': route == 'new-entry' || name === 'Clients' }">
+  <FONT *ngIf="name !== 'Clients'" size="4pt"><B>{{name}}<br><br></B></FONT>
+
+  <label *ngIf="name === 'Clients'">{{name}}</label>
+
+
+  <kendo-grid #grid [data]="gridData" [pageable]="true" [pageSize]="gridState.take" [skip]="gridState.skip"
+    [filter]="gridState.filter" [resizable]="true" [selectable]="selectableSettings"
+    [sortable]="{allowUnsort: true, mode: 'single'}" (pageChange)="pageChange($event)" [skip]="gridState.skip"
+    (dataStateChange)="onStateChange($event)" scrollable="false" (edit)="editHandler($event)"
+    (cancel)="cancelHandler($event)" (save)="saveHandler($event)" (remove)="removeHandler($event)"
+    (add)="addHandler($event)" class="pagination">
+    <kendo-grid-messages pagerPage="{{'genericGrid.Page' | translate }}" pagerOf="{{'genericGrid.of' | translate }}"
+      pagerItems="{{'genericGrid.Items' | translate }}"
+      pagerItemsPerPage="{{'genericGrid.Items per page' | translate }}">
+    </kendo-grid-messages>
+    <ng-template kendoGridToolbarTemplate>
+      <div class="p-2 bd-highlight">
+        <button kendoGridAddCommand [disabled]=" name==='Clients'? !activeAgent:false "
+          class="Add-org btn ced-blue ">{{'gridReactive.Add new' | translate }}</button>
+
+      </div>
+    </ng-template>
+    <kendo-grid-column *ngFor="let column of gridColumns;let i=index" [field]="returnField(column)"
+      title="{{column.title | translate}}">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <kendo-combobox *ngIf="column.type == 'dropdown' && name !== 'Clients'" [(ngModel)]="dataItem[column.name]"
+          [data]="typeList" [textField]="'shortName'" [valueField]="'id'" [formControlName]="column.name"
+          [required]="true" [filterable]="true">
+
+        </kendo-combobox>
+        <kendo-combobox *ngIf="column.type == 'dropdown' && name === 'Clients'" [(ngModel)]="legalName"
+          [data]="typeList" [textField]="'longName'" [valueField]="'clId'" [formControlName]="column.name"
+          [required]="activeAgent" [filterable]="true" (filterChange)="filterChange($event)" [popupSettings]="{
+            width:560
+          }">
+          <ng-template kendoAutoCompleteHeaderTemplate>
+            <table>
+              <tr>
+                <td style="width:280px; text-align:center;">Legal Name</td>
+                <td style="width:280px; text-align:center">Department Name</td>
+              </tr>
+            </table>
+          </ng-template>
+
+          <ng-template kendoComboBoxItemTemplate let-dataItem>
+
+            <table>
+              <tr>
+                <td width="280px;" nowrap="nowrap">
+                  <div style="   overflow: hidden;
+
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;width:280px; ">{{ dataItem.longName }}</div>
+                </td>
+                <td style="width:280px;border-left-style: solid;border-left-width: 1px;">&nbsp; {{ dataItem.longName2 }}
+                </td>
+              </tr>
+            </table>
+          </ng-template>
+
+        </kendo-combobox>
+        <kendo-textbox *ngIf="column.type == 'input'" [(ngModel)]="dataItem[column.name]" [clearButton]="true"
+          [formControlName]="column.name">
+        </kendo-textbox>
+        <kendo-datepicker *ngIf="column.type == 'datepicker'" style="width: 100%;" [navigation]="false"
+          [(ngModel)]="dataItem[column.name]" [formControlName]="column.name">
+
+          {{dataItem.validFromDate| date:'yyyy-MM-dd'}}
+
+        </kendo-datepicker>
+
+
+      </ng-template>
+
+    </kendo-grid-column>
+
+    <kendo-grid-command-column title="Command">
+      <ng-template kendoGridCellTemplate let-isNew="isNew">
+        <button class="plaintext button-icon" kendoGridEditCommand [primary]="true"
+          title="{{'gridReactive.Edit'|translate}}" [disabled]=" name==='Clients'? !activeAgent:false ">
+          <i class="fas fa-pen template-icon ced-prospect-blue"></i>
+        </button>
+        <button class="button-icon" kendoGridRemoveCommand title="{{'Button.Remove'|translate}}"
+          [disabled]=" name==='Clients'? !activeAgent:false ">
+          <i class="fas fa-trash-alt template-icon text-danger"></i>
+        </button>
+        <button kendoGridSaveCommand [disabled]="formGroup?.invalid">{{ isNew ? 'gridReactive.Add' :
+          'gridReactive.Update'| translate }}</button>
+        <button kendoGridCancelCommand *ngIf="isNew">{{'gridReactive.Discard changes' | translate }}</button>
+      </ng-template>
+    </kendo-grid-command-column>
+    <ng-template kendoGridNoRecordsTemplate>
+      {{'genericGrid.No records available' | translate }}
+    </ng-template>
+  </kendo-grid>
+
+
+
+</form>
+ -->

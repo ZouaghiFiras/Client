@@ -1,0 +1,35 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+<app-wizard-step [title]="title"
+                 (previousStepClicked)="goToPreviousStep()"
+                 (nextStepClicked)="goToNextStep()"
+>
+
+  <form [formGroup]="productActivityForm" [attr.aria-label]="title">
+    <section>
+      <div class="form-group">
+        <label>
+          <span>What is the activity that needs to be executed?</span>
+        </label>
+        <div class="row">
+          <ng-container *ngFor="let activity of activityNamesAndIcons">
+            <div class="col-md-3">
+              <div class="card text-center d-flex flex-column h-100">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ activity.name }}</h5>
+                  <span class="{{activity.icon}}" style="font-size: 3rem;"></span>
+                  <input type="radio" formControlName="activity" [value]="activity.name" (click)="selectMainActivity(activity.id)">
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <span class="text-danger form-error" *ngIf="submitted && activityCtrl?.errors?.required">
+          Please select an activity.
+        </span>
+      </div>
+    </section>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</app-wizard-step>
+
+

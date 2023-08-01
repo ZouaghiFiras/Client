@@ -1,0 +1,99 @@
+﻿<div class="p-4">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <app-description></app-description>
+      </div>
+      <div class="col-md-6">
+        <app-search-section></app-search-section>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-around">
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-data"></span>
+        {{'SearchResults.ALL' | translate}}({{getNumberOfAssignments(1)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-clock"></span>
+        {{'SearchResults.WORK_IN_PROGRESS' | translate}}({{getNumberOfAssignments(2)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-calendar"></span>
+        {{'SearchResults.APPOINTMENT_VISITS' | translate}}({{getNumberOfAssignments(3)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-check-outline"></span>
+        {{'SearchResults.TO_VISIT' | translate}}({{getNumberOfAssignments(4)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-page-properties"></span>
+        {{'SearchResults.EXPERTISE' | translate}}({{getNumberOfAssignments(5)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-search"></span>
+        {{'SearchResults.TO_CHECK' | translate}}({{getNumberOfAssignments(6)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-delete"></span>
+        {{'SearchResults.CANCELLED' | translate}}({{getNumberOfAssignments(7)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-check-circle"></span>
+        {{'SearchResults.CLOSED' | translate}}({{getNumberOfAssignments(8)}})
+      </div>
+    </div>
+  </div>
+
+
+
+  <kendo-chart [categoryAxis]="{ categories: ['All', 'Work in progress', 'Appointment visits', 'To visit', 'Expertise', 'To check', 'Cancelled', 'Closed'] }">
+    <kendo-chart-series>
+      <kendo-chart-series-item [data]="[getNumberOfAssignments(1),
+                                          getNumberOfAssignments(2),
+                                          getNumberOfAssignments(3),
+                                          getNumberOfAssignments(4),
+                                          getNumberOfAssignments(5),
+                                          getNumberOfAssignments(6),
+                                          getNumberOfAssignments(7),
+                                          getNumberOfAssignments(8)]" type="column">
+      </kendo-chart-series-item>
+    </kendo-chart-series>
+  </kendo-chart>
+
+
+  <kendo-chart>
+    <kendo-chart-series>
+      <kendo-chart-series-item
+        type="donut"
+        [data]="data"
+        categoryField="kind"
+        field="share"
+      >
+        <kendo-chart-series-item-labels
+          [content]="labelContent"
+          color="#fff"
+        >
+        </kendo-chart-series-item-labels>
+      </kendo-chart-series-item>
+    </kendo-chart-series>
+  </kendo-chart>
+
+
+
+</div>

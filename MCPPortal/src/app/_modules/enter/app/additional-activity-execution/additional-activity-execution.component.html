@@ -1,0 +1,34 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+<app-wizard-step [title]="title" (previousStepClicked)="goToPreviousStep()" (nextStepClicked)="goToNextStep()">
+  <form [formGroup]="additionalActivityExecutionForm" [attr.aria-label]="title">
+    <section>
+      <h2>Activity Execution</h2>
+      <div class="form-group">
+        <label>How should the assessment be executed?</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" formControlName="activityExecution" value="Physical" />
+            Physical
+          </label>
+          <label class="radio-label">
+            <input type="radio" formControlName="activityExecution" value="Video" />
+            Video
+          </label>
+          <label class="radio-label">
+            <input type="radio" formControlName="activityExecution" value="Phone" />
+            Phone
+          </label>
+          <label class="radio-label">
+            <input type="radio" formControlName="activityExecution" value="Desk" />
+            Desk
+          </label>
+          <label class="radio-label">
+            <input type="radio" formControlName="activityExecution" value="System analysis" />
+            System analysis
+          </label>
+        </div>
+      </div>
+    </section>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</app-wizard-step>

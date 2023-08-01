@@ -1,0 +1,25 @@
+<div class="app flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div [ngClass]="{'cedfadeInUp': !isClicked, 'cedfadeOutUp': isClicked}" class="card-group mb-0 animated">
+          <div class="card p-2 white-box">
+            <div class="card-block">
+              <img class="login-logo" src="../assets/img/logo/logo{{logoEntrySystem}}.svg">
+              <p class="text-muted">&nbsp;</p>
+
+              <div *ngFor="let authproviders of authProviders; let i = index" class="row">
+                <div class="col-12" style="margin-bottom: 10px;">
+                  <button (click)="ChangeRoute(authproviders.Url)" [disabled]="authproviders.Name == 'Prospect Mobility'"
+                          class="btn btn-primary col-12"
+                          type="button">{{authproviders.Name}}</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

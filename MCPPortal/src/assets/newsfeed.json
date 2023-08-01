@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Open actions",
+    "actionNumber": "0",
+    "description": "Click on the title for more details",
+    "roles": [
+      {
+        "name": "FunctionalManager"
+      }
+    ]
+  }
+]

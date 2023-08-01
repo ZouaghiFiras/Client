@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Email",
+    "icon": "fas fa-at"
+  },
+  {
+    "name": "Mail",
+    "icon": "fas fa-envelope"
+  },
+  {
+    "name": "XML",
+    "icon": "fas fa-file-alt"
+  }
+]

@@ -1,0 +1,90 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+
+<app-wizard-step [title]="title" (nextStepClicked)="goToNextStep()"  (previousStepClicked)="goToPreviousStep()">
+  <form [formGroup]="reporterInformationForm" [attr.aria-label]="title">
+    <section>
+      <h2>Reporter Information</h2>
+      <div class="form-group">
+        <label>
+          <span>Way of contact *</span>
+        </label>
+        <div class="row">
+          <ng-container *ngFor="let option of optionsData?.options">
+            <div>
+              <h5 class="card-title">{{ option.name }}</h5>
+              <input type="radio" formControlName="contactMethod" [value]="option.name" required (click)="selectWayOfContact(option.id)">
+            </div>
+          </ng-container>
+        </div>
+        <span class="text-danger form-error" *ngIf="submitted && contactMethodCtrl?.errors?.required">
+    Way of contact is required
+  </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Salutation *</span>
+        </label>
+        <div class="row">
+          <ng-container *ngFor="let salutation of salutationData?.value">
+            <div>
+              <h5 class="card-title">{{ salutation.title }}</h5>
+              <input type="radio" formControlName="salutation" [value]="salutation.title" required>
+            </div>
+          </ng-container>
+        </div>
+        <span class="text-danger form-error" *ngIf="submitted && salutationCtrl?.errors?.required">
+    Salutation is required
+  </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>First Name *</span>
+          <input class="form-control" type="text" formControlName="firstName" required />
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && firstNameCtrl?.errors?.required">
+          First Name is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Prefix</span>
+          <input class="form-control" type="text" formControlName="prefix" />
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Last Name *</span>
+          <input class="form-control" type="text" formControlName="lastName" required />
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && lastNameCtrl?.errors?.required">
+          Last Name is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Email *</span>
+          <input class="form-control" type="email" formControlName="email" required />
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && emailCtrl?.errors?.required">
+          Email is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Phone Number *</span>
+          <input class="form-control" type="tel" formControlName="phoneNumber" required />
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && phoneNumberCtrl?.errors?.required">
+          Phone Number is required
+        </span>
+      </div>
+    </section>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</app-wizard-step>

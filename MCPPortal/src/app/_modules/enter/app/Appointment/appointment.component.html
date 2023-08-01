@@ -1,0 +1,39 @@
+<app-wizard-step [title]="title" (previousStepClicked)="goToPreviousStep()" (nextStepClicked)="goToNextStep()">
+
+  <form [formGroup]="appointmentForm" [attr.aria-label]="title">
+    <section>
+      <h2>Call to Make an Appointment</h2>
+      <div class="form-group">
+        <label>Appointment Type *</label>
+        <div class="radio-group">
+          <div class="form-check">
+            <input type="radio" formControlName="appointmentType" value="Call within 24 hours" id="appointmentType1"
+                   required class="form-check-input" />
+            <label class="form-check-label" for="appointmentType1">Call within 24 hours</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" formControlName="appointmentType" value="Urgent appointment" id="appointmentType2"
+                   required class="form-check-input" />
+            <label class="form-check-label" for="appointmentType2">Urgent appointment</label>
+          </div>
+        </div>
+        <div class="invalid-feedback" *ngIf="submitted && appointmentTypeCtrl?.errors?.required">
+          Appointment Type is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Contact Person *</label>
+        <select formControlName="contactPerson" class="form-control" required>
+          <option value="">Select a contact person</option>
+          <option value="John Doe">John Doe</option>
+          <option value="Jane Smith">Jane Smith</option>
+          <option value="Mike Johnson">Mike Johnson</option>
+          <!-- Add more options here -->
+        </select>
+        <div class="invalid-feedback" *ngIf="submitted && contactPersonCtrl?.errors?.required">
+          Contact Person is required
+        </div>
+      </div>
+    </section>
+  </form>
+</app-wizard-step>

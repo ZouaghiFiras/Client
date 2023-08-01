@@ -1,0 +1,132 @@
+.menu-stepper {
+  width: 100%;
+  height: 100%;
+  background-color: #707070;
+}
+
+.back {
+  pointer-events: unset !important;
+  cursor: pointer;
+}
+
+.teamMate:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.teamMate h2 {
+  font-size: 1.3em;
+  font-weight: normal;
+  padding-top: 17px;
+  margin: 0;
+}
+
+.teamMate p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.teamMate img {
+  display: inline-block;
+  vertical-align: top;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+.mate-info {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.panelbar-wrapper {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+:host ::ng-deep .k-panelbar > .k-item.k-state-expanded > .k-link {
+  color: white;
+  background-color: #707070;
+  border-color: #707070;
+  border-width: 0;
+  font-size: 12px;
+}
+
+.style {
+  border-left-width: 0px;
+  border-top: hidden;
+  border-right: hidden;
+  border-bottom-width: 0.5px;
+  border-bottom-color: #707070;
+  width: 95%;
+}
+
+:host ::ng-deep .k-panelbar .k-group > .k-item > .k-link:hover {
+  color: white;
+  background-color: #3899dd;
+  border-color: #3899dd;
+}
+
+:host ::ng-deep .k-panelbar > .k-item > .k-link:hover {
+  color: white;
+  background-color: #3899dd;
+  border-color: #3899dd;
+}
+
+:host ::ng-deep .k-panelbar > .k-item > .k-link.k-state-selected {
+  color: white;
+  background-color: #707070;
+  font-size: 12px;
+}
+
+:host ::ng-deep .k-panelbar > .k-item > .k-link.k-state :hover {
+  color: white;
+  background-color: #707070;
+  font-size: 12px;
+}
+
+:host ::ng-deep .k-panelbar > .k-item.k-state-expanded > .k-link:hover {
+  color: white;
+  background-color: #707070;
+  border-color: #707070;
+}
+
+:host ::ng-deep .k-panelbar > .k-item > .k-link.k-state-selected:hover {
+  color: white;
+  background-color: #707070;
+}
+
+:host ::ng-deep .k-i-arrow-n::before {
+  content: "";
+  color: white;
+}
+
+:host ::ng-deep .k-panelbar .k-group > .k-item > .k-link {
+  font-style: Calibri;
+  color: #ffffff;
+  background-color: #707070;
+  border-color: #707070;
+  font-size: 1rem;
+  font-style: Calibri;
+}
+
+:host ::ng-deep .k-icon {
+  font-size: 20px;
+  margin-right: 0.7em;
+}
+
+:host ::ng-deep .k-i-arrow-n::before {
+  content: "";
+  color: white;
+}
+
+:host ::ng-deep .k-panelbar > .k-item > .k-link .k-icon {
+  color: white;
+}

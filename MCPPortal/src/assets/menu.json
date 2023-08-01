@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Dashboard",
+    "url": "/dashboard",
+    "devOnly": false,
+    "children": null
+  }
+]

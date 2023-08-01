@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="flex-row flex-wrap">
+    <!-- Card - Document Details -->
+    <div class="card">
+      <div class="card-header">
+        <div class="row align-items-center">
+          <div class="col-md-1">
+            <a href="#">
+              <i class="fa fa-arrow-left ced-label-strong"></i>
+            </a>
+          </div>
+          <div class="col-md-11">
+            <h5 class="font-weight-bold">{{ 'Details.TITLE_PHOTOS' | translate }}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row file-details-row col-md-12 d-flex justify-content-between align-items-center">
+          <!-- File Details -->
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.DOSSIER' | translate }}</div>
+            <div class="file-details-data">{{ assignmentId }}</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.REFERENCE' | translate }}</div>
+            <div class="file-details-data">---</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.REGISTRATION' | translate }}</div>
+            <div class="file-details-data">{{ assignmentDetails.damageNumber }}</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.STATUS' | translate }}</div>
+            <div class="file-details-data">{{ assignmentDetails.status }}</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.CLIENT' | translate }}</div>
+            <div class="file-details-data">{{ assignmentDetails.client }}</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.HANDLER' | translate }}</div>
+            <div class="file-details-data">{{ assignmentDetails.handler }}</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.DEPARTMENT' | translate }}</div>
+            <div class="file-details-data">{{ assignmentDetails.department }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- Card - Document Preview -->
+    <div class="card w-100">
+      <div class="d-flex justify-content-center">
+<!--        <app-document-preview></app-document-preview>-->
+<!--        <app-empty-photos></app-empty-photos>-->
+      </div>
+    </div>
+  </div>
+</div>

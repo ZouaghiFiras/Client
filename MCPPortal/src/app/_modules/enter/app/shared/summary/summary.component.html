@@ -1,0 +1,404 @@
+<div class="card">
+  <div class="card-body">
+    <h2>Summary</h2>
+    <!-- Reporter Form -->
+    <div class="form-group ced-box-shadow">
+      <h5 (click)="toggleReporterForm = !toggleReporterForm" class="d-flex align-items-center justify-content-between">
+        <strong class="text-muted">Reporter</strong>
+        <i *ngIf="!toggleReporterForm" class="fas fa-chevron-down"></i>
+        <i *ngIf="toggleReporterForm" class="fas fa-chevron-up"></i>
+      </h5>
+      <!-- Reporter Selection Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleReporterForm">
+        <h6 (click)="toggleReporterSelectionForm = !toggleReporterSelectionForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Reporter Selection</strong>
+          <i *ngIf="!toggleReporterSelectionForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleReporterSelectionForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <div *ngIf="toggleReporterSelectionForm&&toggleReporterForm">
+          <header>Selected Reporter:</header>
+          <p>{{reporterSelectionGroup.data.reporterSelection}}</p>
+        </div>
+      </div>
+      <!-- Reporter Information Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleReporterForm">
+        <h6 (click)="toggleReporterInformationForm = !toggleReporterInformationForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Reporter Information</strong>
+          <i *ngIf="!toggleReporterInformationForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleReporterInformationForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display other properties of the reporter information form group as needed -->
+        <div *ngIf="toggleReporterInformationForm&&toggleReporterForm">
+          <header>contactMethod:</header>
+          <p>{{reporterInformationGroup.data.contactMethod}}</p>
+          <header>salutation:</header>
+          <p>{{reporterInformationGroup.data.salutation}}</p>
+          <header>firstName:</header>
+          <p>{{reporterInformationGroup.data.firstName}}</p>
+          <header>prefix:</header>
+          <p>{{reporterInformationGroup.data.prefix}}</p>
+          <header>lastName:</header>
+          <p>{{reporterInformationGroup.data.lastName}}</p>
+          <header>email:</header>
+          <p>{{reporterInformationGroup.data.email}}</p>
+          <header>phoneNumber:</header>
+          <p>{{reporterInformationGroup.data.phoneNumber}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Form -->
+    <div class="form-group ced-box-shadow">
+      <h5 (click)="toggleProductForm = !toggleProductForm" class="d-flex align-items-center justify-content-between">
+        <strong class="text-muted">Product</strong>
+        <i *ngIf="!toggleProductForm" class="fas fa-chevron-down"></i>
+        <i *ngIf="toggleProductForm" class="fas fa-chevron-up"></i>
+      </h5>
+      <!-- Product Activity Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleProductForm">
+        <h6 (click)="toggleProductActivityForm = !toggleProductActivityForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Product Activity</strong>
+          <i *ngIf="!toggleProductActivityForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleProductActivityForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display other properties of the product activity form group as needed -->
+        <div *ngIf="toggleProductActivityForm&&toggleProductForm">
+          <header>Product Activity:</header>
+          <p>{{productActivityGroup.data.activity}}</p>
+        </div>
+      </div>
+
+      <!-- Product Coverage Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleProductForm">
+        <h6 (click)="toggleProductCoverageForm = !toggleProductCoverageForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Product Coverage</strong>
+          <i *ngIf="!toggleProductCoverageForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleProductCoverageForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the product coverage form group as needed -->
+        <div *ngIf="toggleProductCoverageForm&&toggleProductForm">
+          <header>Product Coverage:</header>
+          <p>{{productCoverageGroup.data.coverage}}</p>
+        </div>
+      </div>
+
+      <!-- Product Object Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleProductForm">
+        <h6 (click)="toggleProductObjectForm = !toggleProductObjectForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Product Object</strong>
+          <i *ngIf="!toggleProductObjectForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleProductObjectForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the product object form group as needed -->
+        <div *ngIf="toggleProductObjectForm&&toggleProductForm">
+          <header>Product Object:</header>
+          <p>{{productObjectGroup.data.object}}</p>
+        </div>
+      </div>
+
+      <!-- Product Sub-Object Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleProductForm">
+        <h6 (click)="toggleProductSubObjectForm = !toggleProductSubObjectForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Product Sub-Object</strong>
+          <i *ngIf="!toggleProductSubObjectForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleProductSubObjectForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the product sub-subObject form group as needed -->
+        <div *ngIf="toggleProductSubObjectForm&&toggleProductForm">
+          <header>Product Sub-Object:</header>
+          <p>{{productSubObjectGroup.data.subObject}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Party Form -->
+    <div class="form-group ced-box-shadow">
+      <h5 (click)="togglePartyForm = !togglePartyForm" class="d-flex align-items-center justify-content-between">
+        <strong class="text-muted">Party</strong>
+        <i *ngIf="!togglePartyForm" class="fas fa-chevron-down"></i>
+        <i *ngIf="togglePartyForm" class="fas fa-chevron-up"></i>
+      </h5>
+      <!-- Display properties of the party form group as needed -->
+      <div *ngIf="togglePartyForm">
+        <header>Party Type:</header>
+        <p>{{partyGroup.data.partyType}}</p>
+        <header>Party Role:</header>
+        <p>{{partyGroup.data.partyRole}}</p>
+        <header>Party Suffix:</header>
+        <p>{{partyGroup.data.suffix}}</p>
+        <header>Party Full Address:</header>
+        <p>{{partyGroup.data.houseNumber}},{{partyGroup.data.street}},{{partyGroup.data.city}}
+          ,{{partyGroup.data.country}}</p>
+        <header>Postal Code:</header>
+        <p>{{partyGroup.data.postalCode}}</p>
+        <header>Party Email:</header>
+        <p>{{partyGroup.data.email}}</p>
+        <header>Party Phones:</header>
+        <p>{{partyGroup.data.phone1}}/{{partyGroup.data.phone2}}/{{partyGroup.data.phone3}}</p>
+      </div>
+    </div>
+
+    <!-- Object Form -->
+    <div class="form-group ced-box-shadow">
+      <h5 (click)="toggleObjectForm = !toggleObjectForm" class="d-flex align-items-center justify-content-between">
+        <strong class="text-muted">Object</strong>
+        <i *ngIf="!toggleObjectForm" class="fas fa-chevron-down"></i>
+        <i *ngIf="toggleObjectForm" class="fas fa-chevron-up"></i>
+      </h5>
+      <!-- Display properties of the subObject form group as needed -->
+      <div *ngIf="toggleObjectForm">
+        <header>Object:</header>
+        <p>{{objectGroup.data.object}}</p>
+        <header>Sub-Object:</header>
+        <p>{{objectGroup.data.subObject}}</p>
+        <header>Located At Party Address:</header>
+        <p>{{objectGroup.data.locatedAtPartyAddress}}</p>
+        <header>Party:</header>
+        <p>{{objectGroup.data.party}}</p>
+        <header>Damage Location:</header>
+        <p>{{objectGroup.data.damageLocation}}</p>
+        <header>Coverage:</header>
+        <p>{{objectGroup.data.coverage}}</p>
+        <header>Policy Number:</header>
+        <p>{{objectGroup.data.policyNumber}}</p>
+        <header>Deductible Excess:</header>
+        <p>{{objectGroup.data.deductibleExcess}}</p>
+        <header>Insured Amount:</header>
+        <p>{{objectGroup.data.insuredAmount}}</p>
+        <header>Policy Conditions:</header>
+        <p>{{objectGroup.data.policyConditions}}</p>
+        <header>Deed of Assignment:</header>
+        <p>{{objectGroup.data.deedOfAssignment}}</p>
+        <header>Start Date Known:</header>
+        <p>{{objectGroup.data.startDateKnown}}</p>
+        <header>Policy Duration:</header>
+        <p>{{objectGroup.data.policyDuration}}</p>
+        <header>Guarantee Against Underinsurance:</header>
+        <p>{{objectGroup.data.guaranteeAgainstUnderinsurance}}</p>
+        <header>Including/Excluding VAT:</header>
+        <p>{{objectGroup.data.includingExcludingVAT}}</p>
+      </div>
+    </div>
+    <!-- Damage Form -->
+    <div class="form-group ced-box-shadow">
+      <h5 (click)="toggleDamageForm = !toggleDamageForm" class="d-flex align-items-center justify-content-between">
+        <strong class="text-muted">Damage</strong>
+        <i *ngIf="!toggleDamageForm" class="fas fa-chevron-down"></i>
+        <i *ngIf="toggleDamageForm" class="fas fa-chevron-up"></i>
+      </h5>
+      <!-- Damage Main Reason Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleDamageForm">
+        <h6 (click)="toggleDamageMainReasonForm = !toggleDamageMainReasonForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Damage Main Reason</strong>
+          <i *ngIf="!toggleDamageMainReasonForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleDamageMainReasonForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the damage main reason form group as needed -->
+        <div *ngIf="toggleDamageMainReasonForm&&toggleDamageForm">
+          <header>Damage Main Reason:</header>
+          <p>{{damageMainReasonGroup.data.mainReason}}</p>
+        </div>
+      </div>
+
+      <!-- Damage Reason Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleDamageForm">
+        <h6 (click)="toggleDamageReasonForm = !toggleDamageReasonForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Damage Reason</strong>
+          <i *ngIf="!toggleDamageReasonForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleDamageReasonForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the damage reason form group as needed -->
+        <div *ngIf="toggleDamageReasonForm&&toggleDamageForm">
+          <header>Damage Reason:</header>
+          <p>{{damageReasonGroup.data.reason}}</p>
+        </div>
+      </div>
+
+      <!-- Damage Sub-Reason Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleDamageForm">
+        <h6 (click)="toggleDamageSubReasonForm = !toggleDamageSubReasonForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Damage Sub-Reason</strong>
+          <i *ngIf="!toggleDamageSubReasonForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleDamageSubReasonForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the damage sub-reason form group as needed -->
+        <div *ngIf="toggleDamageSubReasonForm&&toggleDamageForm">
+          <header>Damage Sub-Reason:</header>
+          <p>{{damageSubReasonGroup.data.subReason}}</p>
+        </div>
+      </div>
+
+      <!-- Damage Cause Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleDamageForm">
+        <h6 (click)="toggleDamageCauseForm = !toggleDamageCauseForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Damage Cause</strong>
+          <i *ngIf="!toggleDamageCauseForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleDamageCauseForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the damage cause form group as needed -->
+        <div *ngIf="toggleDamageCauseForm&&toggleDamageForm">
+          <header>Damage Cause:</header>
+          <p>{{damageCauseGroup.data.cause}}</p>
+        </div>
+      </div>
+
+      <!-- Damage Additional Information Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleDamageForm">
+        <h6 (click)="toggleDamageAdditionalInformationForm = !toggleDamageAdditionalInformationForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Damage Additional Information</strong>
+          <i *ngIf="!toggleDamageAdditionalInformationForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleDamageAdditionalInformationForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the damage additional information form group as needed -->
+        <div *ngIf="toggleDamageAdditionalInformationForm&&toggleDamageForm">
+          <header>Case Number:</header>
+          <p>{{damageAdditionalInformationGroup.data.caseNumber}}</p>
+          <header>Order Number:</header>
+          <p>{{damageAdditionalInformationGroup.data.orderNumber}}</p>
+          <header>Damage Date Unknown:</header>
+          <p>{{damageAdditionalInformationGroup.data.damageDateUnknown}}</p>
+          <header>Damage Date:</header>
+          <p>{{damageAdditionalInformationGroup.data.damageDate}}</p>
+          <header>Right Of Recovery:</header>
+          <p>{{damageAdditionalInformationGroup.data.rightOfRecovery}}</p>
+          <header>Estimated Damage Amount:</header>
+          <p>{{damageAdditionalInformationGroup.data.estimatedDamageAmount}}</p>
+          <header>Additional Explanation:</header>
+          <p>{{damageAdditionalInformationGroup.data.additionalExplanation}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Additional Form -->
+    <div class="form-group ced-box-shadow">
+      <h5 (click)="toggleAdditionalForm = !toggleAdditionalForm"
+          class="d-flex align-items-center justify-content-between">
+        <strong class="text-muted">Additional</strong>
+        <i *ngIf="!toggleAdditionalForm" class="fas fa-chevron-down"></i>
+        <i *ngIf="toggleAdditionalForm" class="fas fa-chevron-up"></i>
+      </h5>
+      <!-- Additional Questions Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleAdditionalForm">
+        <h6 (click)="toggleAdditionalQuestionsForm = !toggleAdditionalQuestionsForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Additional Questions</strong>
+          <i *ngIf="!toggleAdditionalQuestionsForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleAdditionalQuestionsForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the additional questions form group as needed -->
+        <div *ngIf="toggleAdditionalQuestionsForm&&toggleAdditionalForm">
+          <header>Damage Repaired:</header>
+          <p>{{additionalQuestionsGroup.data.damageRepaired}}</p>
+          <header>Police Report Available:</header>
+          <p>{{additionalQuestionsGroup.data.policeReportAvailable}}</p>
+          <header>Client Question:</header>
+          <p>{{additionalQuestionsGroup.data.clientQuestion}}</p>
+        </div>
+      </div>
+
+      <!-- Additional Activities Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleAdditionalForm">
+        <h6 (click)="toggleAdditionalActivitiesForm = !toggleAdditionalActivitiesForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Additional Activities</strong>
+          <i *ngIf="!toggleAdditionalActivitiesForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleAdditionalActivitiesForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the additional activities form group as needed -->
+        <div *ngIf="toggleAdditionalActivitiesForm&&toggleAdditionalForm">
+          <header>Additional Activities:</header>
+          <p>{{additionalActivitiesGroup.data.additionalActivities}}</p>
+        </div>
+      </div>
+
+      <!-- Additional Activity Execution Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleAdditionalForm">
+        <h6 (click)="toggleAdditionalActivityExecutionForm = !toggleAdditionalActivityExecutionForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Additional Activity Execution</strong>
+          <i *ngIf="!toggleAdditionalActivityExecutionForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleAdditionalActivityExecutionForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the additional activity execution form group as needed -->
+        <div *ngIf="toggleAdditionalActivityExecutionForm&&toggleAdditionalForm">
+          <header>Activity Execution:</header>
+          <p>{{additionalActivityExecutionGroup.data.activityExecution}}</p>
+        </div>
+      </div>
+
+      <!-- Additional Reporting Form Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleAdditionalForm">
+        <h6 (click)="toggleAdditionalReportingFormForm = !toggleAdditionalReportingFormForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Additional Reporting Form</strong>
+          <i *ngIf="!toggleAdditionalReportingFormForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleAdditionalReportingFormForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the additional reporting form form group as needed -->
+        <div *ngIf="toggleAdditionalReportingFormForm&&toggleAdditionalForm">
+          <header>Reporting Form:</header>
+          <p>{{additionalReportingFormGroup.data.reportingForm}}</p>
+        </div>
+      </div>
+
+      <!-- Additional Delivery Method Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleAdditionalForm">
+        <h6 (click)="toggleAdditionalDeliveryMethodForm = !toggleAdditionalDeliveryMethodForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Additional Delivery Method</strong>
+          <i *ngIf="!toggleAdditionalDeliveryMethodForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleAdditionalDeliveryMethodForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the additional delivery method form group as needed -->
+        <div *ngIf="toggleAdditionalDeliveryMethodForm&&toggleAdditionalForm">
+          <header>Delivery Method:</header>
+          <p>{{additionalDeliveryMethodGroup.data.deliveryMethod}}</p>
+          <header>Comments:</header>
+          <p>{{additionalDeliveryMethodGroup.data.comments}}</p>
+        </div>
+      </div>
+
+      <!-- Additional Documents Form -->
+      <div class="form-group ced-box-shadow" *ngIf="toggleAdditionalForm">
+        <h6 (click)="toggleAdditionalDocumentsForm = !toggleAdditionalDocumentsForm"
+            class="d-flex align-items-center justify-content-between">
+          <strong>Additional Documents</strong>
+          <i *ngIf="!toggleAdditionalDocumentsForm" class="fas fa-chevron-down"></i>
+          <i *ngIf="toggleAdditionalDocumentsForm" class="fas fa-chevron-up"></i>
+        </h6>
+        <!-- Display properties of the additional documents form group as needed -->
+        <div *ngIf="toggleAdditionalDocumentsForm&&toggleAdditionalForm">
+          <header>Comments:</header>
+          <p>{{additionalDocumentsGroup.data.comments}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Appointment Form -->
+    <div class="form-group ced-box-shadow">
+
+      <h5 (click)="toggleAppointmentForm = !toggleAppointmentForm"
+          class="d-flex align-items-center justify-content-between">
+        <strong class="text-muted">Appointment</strong>
+        <i *ngIf="!toggleAppointmentForm" class="fas fa-chevron-down"></i>
+        <i *ngIf="toggleAppointmentForm" class="fas fa-chevron-up"></i>
+      </h5>
+      <!-- Display properties   as needed -->
+      <div *ngIf="toggleAppointmentForm">
+        <header>Appointment Type:</header>
+        <p>{{appointmentGroup.data.appointmentType}}</p>
+        <header>Contact Person:</header>
+        <p>{{appointmentGroup.data.contactPerson}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>

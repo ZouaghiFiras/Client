@@ -1,0 +1,21 @@
+<div>
+  <h1>Choose Theme</h1>
+
+  <kendo-buttongroup selection="single" look="outline">
+    <button kendoButton [toggleable]="true" (click)="setDarkModeTheme()">
+      <span>
+        Dark Mode Theme
+      </span>
+    </button>
+    <button kendoButton [toggleable]="true" (click)="setLightModeTheme()">
+      <span>
+        Light Mode Theme
+      </span>
+    </button>
+    <button kendoButton [toggleable]="true" (click)="setSystemModeTheme()">
+      <span>
+        Operating System Mode Theme
+      </span>
+    </button>
+  </kendo-buttongroup>
+</div>

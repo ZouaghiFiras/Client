@@ -1,0 +1,43 @@
+<div class="p-4">
+  <div class="card shadow">
+    <div class="card-header bg-white">
+      <h3 class="text-gray-dark font-weight-bold">{{ 'Enter.TITLE' | translate }}</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="notification blue text-start">
+            <p><i class="fas fa-info-circle"></i>{{ 'Enter.NOTIFICATION_1' | translate }}</p>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="notification blue text-start">
+            <p><i class="fas fa-info-circle"></i>{{ 'Enter.NOTIFICATION_2' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer bg-white">
+      <div class="row">
+        <div class="col-sm-6 rounded">
+          <a [routerLink]=""
+             class="btn btn-secondary btn-lg btn-block mobility d-flex align-items-center justify-content-center flex-column">
+            <i class="fas fa-car"></i>
+            <div class="font-weight-bold">{{ 'Enter.WIZARD_1' | translate }}</div>
+          </a>
+        </div>
+        <div class="col-sm-6 rounded">
+          <a [routerLink]="['/enter/property']"
+             class="btn btn-secondary btn-lg btn-block property d-flex align-items-center justify-content-center flex-column">
+            <i class="fas fa-home"></i>
+            <div class="font-weight-bold">{{ 'Enter.WIZARD_2' | translate }}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br>
+
+</div>
+

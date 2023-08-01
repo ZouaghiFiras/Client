@@ -1,0 +1,31 @@
+<kendo-appbar class="k-bottom-nav-shadow">
+
+  <kendo-appbar-section>
+    <a class="navbar-brand padding-left" href="#">
+      <img alt="Logo" class="fa-font-awesome-logo-full" height="30"
+           src="../../../assets/img/logo/CED-Logo-Original.png">
+    </a>
+  </kendo-appbar-section>
+
+  <kendo-appbar-section *ngIf="authService.instance.getActiveAccount()">
+    <a [routerLinkActiveOptions]="{ exact: true }" class="nav-item nav-link ced-label-strong" routerLink="/"
+       routerLinkActive="active">Home</a>
+  </kendo-appbar-section>
+  <kendo-appbar-section *ngIf="authService.instance.getActiveAccount()">
+    <a class="nav-item nav-link ced-label-strong" routerLink="/enter" routerLinkActive="active">Enter</a>
+  </kendo-appbar-section>
+  <kendo-appbar-section *ngIf="authService.instance.getActiveAccount()">
+    <a class="nav-item nav-link ced-label-strong" routerLink="/consult" routerLinkActive="active">Consult</a>
+  </kendo-appbar-section>
+  <kendo-appbar-section *ngIf="authService.instance.getActiveAccount()">
+    <a class="nav-item nav-link ced-label-strong" routerLink="/support" routerLinkActive="active">Support</a>
+  </kendo-appbar-section>
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+  <kendo-appbar-section>
+    <app-language></app-language>
+  </kendo-appbar-section>
+  <kendo-appbar-section>
+    <app-profile></app-profile>
+  </kendo-appbar-section>
+
+</kendo-appbar>

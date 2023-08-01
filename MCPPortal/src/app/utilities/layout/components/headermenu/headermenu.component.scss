@@ -1,0 +1,91 @@
+/*
+    square buttons
+*/
+a:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 300px;
+}
+
+.btn-sq-ced {
+  margin: 4px;
+}
+
+.btn-ced-sq {
+  float: left;
+}
+
+.btn-ced-sq a {
+  position: relative;
+  display: block;
+  width: 88px !important;
+  height: 88px !important;
+}
+
+.btn-ced-sq a span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn.btn-sq-md {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 88px !important;
+  height: 88px !important;
+}
+
+.btn-sq-lg {
+  width: 150px !important;
+  height: 150px !important;
+  color: #fff !important;
+  margin-bottom: 3px;
+}
+
+.btn-sq {
+  width: 88px !important;
+  height: 88px !important;
+  font-size: 10px;
+  color: #fff !important;
+  margin-bottom: 3px;
+}
+
+.btn-sq-sm {
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 10px;
+  color: #fff !important;
+  margin-bottom: 3px;
+}
+
+.btn-sq-xs {
+  width: 25px !important;
+  height: 25px !important;
+  padding: 2px;
+  color: #fff !important;
+  margin-bottom: 3px;
+}
+
+/*
+    awesome
+*/
+
+.fa-2 {
+  font-size: 2em !important;
+}
+
+.fa-3 {
+  font-size: 4em !important;
+}
+
+.fa-5 {
+  font-size: 12em !important;
+}

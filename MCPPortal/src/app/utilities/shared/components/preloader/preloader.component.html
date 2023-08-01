@@ -1,0 +1,9 @@
+<div [class.ced-k-loader]="fullscreen" [class.preloader-container]="!fullscreen" [style.height]="parentHeight"
+     [style.left]="0" [style.position]="'absolute'" [style.top]="0" [style.width]="parentWidth"
+     [style.z-index]="fullscreen ? 999999 : 4">
+  <div class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+  </div>
+</div>

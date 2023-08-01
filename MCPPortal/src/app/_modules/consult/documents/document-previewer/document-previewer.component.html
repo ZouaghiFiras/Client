@@ -1,0 +1,115 @@
+<app-empty-documents *ngIf="empty"></app-empty-documents>
+
+<!--<div class="row" *ngIf="!empty">-->
+<!--  <div class="col-lg-6 col-md-12">-->
+<!--    <div *ngIf="selectedDocument">-->
+<!--&lt;!&ndash;            <div  class="embed-responsive embed-responsive-16by9">&ndash;&gt;-->
+<!--&lt;!&ndash;              <iframe [src]="selectedDocumentUrl"  class="iframe"></iframe>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <div class="container-fluid mt-3">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <a [href]="selectedDocumentUrl" download="{{ selectedDocument.name }}" class="btn btn-primary">Download</a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+
+<!--      <div *ngIf="isImageFile(selectedDocument)" class="text-center">-->
+<!--        <img [src]="selectedSrc" alt="{{ selectedDocument.name }}" role="img" class="img-fluid">-->
+<!--        &lt;!&ndash;        <iframe [src]="selectedFileSrc" role="img" class="img-fluid"></iframe>&ndash;&gt;-->
+<!--        <div class="container-fluid mt-3">-->
+<!--          <a [href]="selectedSrc" download="{{ selectedDocument.name }}" class="btn btn-primary">Download</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div *ngIf="isPdfFile(selectedDocument)" class="embed-responsive embed-responsive-16by9">-->
+<!--        <iframe [src]="selectedSrc" role="application" class="iframe embed-responsive-item"></iframe>-->
+<!--        &lt;!&ndash;        <embed [src]="selectedFileSrc" class="iframe embed-responsive-item" >&ndash;&gt;-->
+<!--        <div class="container-fluid mt-3">-->
+<!--          <a [href]="selectedSrc" download="{{ selectedDocument.name }}" class="btn btn-primary">Download</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div *ngIf="!isImageFile(selectedDocument) && !isPdfFile(selectedDocument)" class="embed-responsive embed-responsive-16by9">-->
+<!--        <iframe [src]="selectedSrc" role="document" class="iframe"></iframe>-->
+<!--        <div class="container-fluid mt-3">-->
+<!--          <a [href]="selectedSrc" download="{{ selectedDocument.name }}" class="btn btn-primary">Download</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div *ngIf="!selectedDocument" class="text-center">-->
+<!--      No file selected.-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="col-lg-6 col-md-12">-->
+<!--    <kendo-grid [data]="documents" [height]="gridHeight" (selectionChange)="onCellClick($event)" (cellClick)="onCellClick($event)" class="mt-3">-->
+<!--      <kendo-grid-column field="name" title="File Name"></kendo-grid-column>-->
+<!--    </kendo-grid>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="container-fluid">
+  <div class="row justify-content-start align-items-center" *ngIf="!empty">
+    <div class="col" *ngFor="let document of documents">
+      <div class="card" (click)="openDialog(document)">
+        <div class="card-body">
+          <div class="card-image" *ngIf="isImageFile(document)">
+            <i class="k-icon k-i-image" style="font-size: 10rem;"></i>
+          </div>
+          <div class="card-image" *ngIf="isPdfFile(document)">
+            <i class="k-icon k-i-pdf" style="font-size: 10rem;"></i>
+          </div>
+          <div class="card-image" *ngIf="!isImageFile(document)&& !isPdfFile(document)">
+            <i class="k-icon k-i-file" style="font-size: 10rem;"></i>
+          </div>
+          <h5 class="card-title">{{ document.displayName }}</h5>
+          <h5 class="small">{{ document.uploadedBy }}</h5>
+          <h5 class="small">{{ document.description }}</h5>
+          <h5 class="small">{{ document.timestamp }}</h5>
+        </div>
+        <div class="card-overlay">
+          <div class="card-overlay-icon">
+            <i class="k-icon k-i-zoom-actual-size" style="font-size: 8rem;"></i>
+            <span class="zoom-message ced-label-strong">Open</span>
+            <!--          <i class="k-icon k-i-eye"></i>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<kendo-dialog (close)="closeDialog()" *ngIf="dialogVisible" [title]="selectedDocument.displayName">
+  <div class="container">
+    <div *ngIf="selectedDocument">
+      <div *ngIf="isImageFile(selectedDocument)" class="text-center">
+        <img [src]="selectedDocumentUrl" alt="{{ selectedDocument.displayName }}" class="img-fluid">
+        <div class="container-fluid mt-3">
+          <a [href]="selectedDocumentUrl" download="{{ selectedDocument.displayName }}" class="btn btn-primary">Download</a>
+        </div>
+      </div>
+      <div *ngIf="isPdfFile(selectedDocument)" class="embed-responsive embed-responsive-16by9">
+        <iframe [src]="selectedDocumentUrl" role="application" class="iframe embed-responsive-item"></iframe>
+        <div class="container-fluid mt-3">
+          <a [href]="selectedDocumentUrl" download="{{ selectedDocument.displayName }}" class="btn btn-primary">Download</a>
+        </div>
+      </div>
+<!--        <img [src]="selectedDocumentUrl" alt="{{ selectedDocument.displayName }}" class="img-fluid">-->
+<!--        <div class="container-fluid mt-3">-->
+<!--          <a [href]="selectedDocumentUrl" download="{{ selectedDocument.displayName }}" class="btn btn-primary">Download</a>-->
+<!--        </div>-->
+<!--      </div>-->
+      <div *ngIf="!isImageFile(selectedDocument) && !isPdfFile(selectedDocument)" class="embed-responsive embed-responsive-16by9">
+        <iframe [src]="selectedDocumentUrl" role="document" class="iframe"></iframe>
+        <div class="container-fluid mt-3">
+          <a [href]="selectedDocumentUrl" download="{{ selectedDocument.displayName }}" class="btn btn-primary">Download</a>
+        </div>
+      </div>
+<!--        <img [src]="selectedDocumentUrl" alt="{{ selectedDocument.displayName }}" class="img-fluid">-->
+<!--        <div class="container-fluid mt-3">-->
+<!--          <a [href]="selectedDocumentUrl" download="{{ selectedDocument.displayName }}" class="btn btn-primary">Download</a>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+    <div *ngIf="!selectedDocument" class="text-center">
+      No file selected.
+    </div>
+  </div>
+</kendo-dialog>
+
+<br>  <br>  <br>  <br>  <br>

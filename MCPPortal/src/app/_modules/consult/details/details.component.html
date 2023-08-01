@@ -1,0 +1,130 @@
+<div class="container-fluid h-100" >
+  <div class="row h-100">
+    <!-- Title Card -->
+    <div class="card col-md-12">
+      <div class="card-header">
+        <div class="row align-items-center">
+          <div class="col-md-1">
+            <a [routerLink]="['/consult']">
+              <i class="fa fa-arrow-left ced-label-strong fa-3x"></i>
+            </a>
+          </div>
+          <div class="col-md-11">
+            <h5 class="font-weight-bold">{{ 'Details.TITLE' | translate }}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- File Details Row -->
+        <div class="row file-details-row col-md-12 d-flex justify-content-between align-items-center">
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.DOSSIER' | translate }}</div>
+            <div class="file-details-data">{{ assignmentId }}</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.REFERENCE' | translate }}</div>
+            <div class="file-details-data">---</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.REGISTRATION' | translate }}</div>
+            <div class="file-details-data"> --- </div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.STATUS' | translate }}</div>
+            <div class="file-details-data">{{ assignmentDetails?.status }}</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.CLIENT' | translate }}</div>
+            <div class="file-details-data">{{ assignmentDetails?.client }}</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.HANDLER' | translate }}</div>
+            <div class="file-details-data">{{ assignmentDetails?.handler }}</div>
+          </div>
+          <div class="flex-column">
+            <div class="file-details-title">{{ 'Details.DEPARTMENT' | translate }}</div>
+            <div class="file-details-data">{{ assignmentDetails?.department }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- Contact Component -->
+    <div class="app-contact col-md-12">
+      <app-contact
+        [cause]="assignmentDetails?.cause"
+        [client]="assignmentDetails?.client"
+        [coverage]="assignmentDetails?.coverage"
+        [product]="assignmentDetails?.product"
+        [intakeMethod]="assignmentDetails?.intakeMethod"
+        [contactPersonEmail]="assignmentDetails?.contactPersonEmail"
+        [contactPerson]="assignmentDetails?.contactPerson"
+        [object]="assignmentDetails?.object"
+        [workActivity]="assignmentDetails?.workActivity">
+      </app-contact>
+    </div>
+  </div>
+</div>
+<br>
+<!-- Additional Components -->
+<div class="d-flex flex-wrap justify-content-around div-block-padding">
+  <!-- Add Attachment Component -->
+  <div class="col-12 col-md-6 col-lg-2">
+    <div class="d-flex flex-row">
+      <app-add-attachment [assignmentNumber]="assignmentId"></app-add-attachment>
+    </div>
+  </div>
+
+  <!-- Status Component -->
+  <div class="col-12 col-md-6 col-lg-2">
+    <div class="d-flex flex-row">
+      <app-status [currentStatusIndex]="currentStatusIndex"></app-status>
+    </div>
+  </div>
+
+  <!-- Policy Component -->
+  <div class="col-12 col-md-6 col-lg-2">
+    <div class="d-flex flex-row">
+      <app-policy
+        [assignmentNumber]="assignmentId"
+        [insuredAmount]="assignmentDetails?.insuredAmount"
+        [ownRisk]="assignmentDetails?.ownRisk"
+        [policyConditions]="assignmentDetails?.policyConditions"
+        [policyNumber]="assignmentDetails?.policyNumber">
+      </app-policy>
+    </div>
+  </div>
+
+  <!-- Damage Component -->
+  <div class="col-12 col-md-6 col-lg-2">
+    <div class="d-flex flex-row">
+      <app-damage
+        [cause]="assignmentDetails?.cause"
+        [damageDate]="assignmentDetails?.damageDate"
+        [damageNumber]="assignmentDetails?.damageNumber"
+        [deedOfAssignment]="assignmentDetails?.deedOfAssignment"
+        [estimatedDamageAmount]="assignmentDetails?.estimatedDamageAmount"
+        [recovery]="assignmentDetails?.recovery">
+      </app-damage>
+    </div>
+  </div>
+
+  <!-- Visitor Info Component -->
+  <div class="col-12 col-md-6 col-lg-2">
+    <div class="d-flex flex-row">
+      <app-visitor-info
+        [activityExecution]="assignmentDetails?.activityExecution"
+        [expert]="assignmentDetails?.expert"
+        [reportingForm]="assignmentDetails?.reportingForm"
+        [visitDate]="assignmentDetails?.visitDate">
+      </app-visitor-info>
+    </div>
+  </div>
+
+  <!-- Party Component -->
+  <div class="col-12 col-md-6 col-lg-2">
+    <div class="d-flex flex-row">
+      <app-party [partyInitials]="partyInitials"></app-party>
+    </div>
+  </div>
+</div>

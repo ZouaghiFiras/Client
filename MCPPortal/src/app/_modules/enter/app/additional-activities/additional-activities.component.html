@@ -1,0 +1,18 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+<app-wizard-step [title]="title" (previousStepClicked)="goToPreviousStep()" (nextStepClicked)="goToNextStep()">
+  <form [formGroup]="additionalActivitiesForm" [attr.aria-label]="title">
+    <section>
+      <h2>Additional Activities</h2>
+      <div class="form-group">
+        <label>Additional Activities</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" formControlName="additionalActivities" value="Damage assessment Commercial building" />
+            Damage assessment Commercial building
+          </label>
+        </div>
+      </div>
+    </section>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</app-wizard-step>

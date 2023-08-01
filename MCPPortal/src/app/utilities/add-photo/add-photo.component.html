@@ -1,0 +1,25 @@
+<kendo-card class="w-100">
+  <kendo-card-header class="ced-bg-color-white">
+    <p class="text-center">{{ 'Details.UPLOAD_PHOTO' | translate }}</p>
+  </kendo-card-header>
+  <kendo-card-body class="d-flex justify-content-center flex-column">
+    <button (click)="openDialog()" [primary]="true" kendoButton>{{ 'Details.ADD_PHOTO' | translate }}</button>
+  </kendo-card-body>
+</kendo-card>
+
+<kendo-dialog (close)="closeDialog()" *ngIf="dialogVisible" [title]="'Attachments'">
+  <kendo-uploaddropzone zoneId="myZone">
+    Only JPEG documents are allowed.
+  </kendo-uploaddropzone>
+  <kendo-upload
+    (remove)="onRemove($event)"
+    (success)="onUpload($event)"
+    [removeUrl]="uploadRemoveUrl"
+    [restrictions]="myRestrictions"
+    [saveUrl]="uploadSaveUrl">
+  </kendo-upload>
+  <div kendoDialogActions>
+    <button (click)="closeDialog()" [style]="'outline'" kendoButton>Cancel</button>
+    <button (click)="submitAttachments()" [primary]="true" kendoButton>Submit</button>
+  </div>
+</kendo-dialog>

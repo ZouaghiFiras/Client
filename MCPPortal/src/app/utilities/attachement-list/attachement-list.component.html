@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-header">
+    List of Attachments
+  </div>
+  <div class="card-footer ced-bg-color-white">
+    <!-- List of Photos -->
+    <div class="card">
+      <div class="card-header">
+        List of Photos
+      </div>
+      <div class="card-body">
+        <button (click)="downloadPhotos()" class="btn btn-primary">
+          Download all the Photos
+        </button>
+      </div>
+      <div *ngFor="let photo of dataPhoto.urls" class="card-footer d-flex justify-content-center ced-bg-color-white">
+        <a (click)="downloadItem(photo)" class="btn btn-outline-primary" download="nameofFile">
+          Download this image
+        </a>
+        <button class="btn btn-outline-primary">
+          <span (click)="open('dialog1')" *ngIf="!dialog1Opened" class="fa fa-eye"></span>
+        </button>
+        <kendo-dialog
+          (close)="close('dialog1')"
+          *ngIf="dialog1Opened"
+          [height]="600"
+          [width]="800"
+          title="See photo"
+        >
+          <div class="k-image w-100 h-100">
+            <img alt="" src="{{ photo }}">
+          </div>
+        </kendo-dialog>
+      </div>
+    </div>
+
+    <!-- List of Files -->
+    <div class="card">
+      <div class="card-header">
+        List of Files
+      </div>
+      <div class="card-body">
+        <button (click)="downloadDocuments()" class="btn btn-primary">
+          Download all the documents
+        </button>
+      </div>
+      <div *ngFor="let file of dataFiles.urls" class="card-footer d-flex justify-content-center ced-bg-color-white">
+        <a (click)="downloadItem(file)" class="btn btn-outline-primary" download="nameofFile">
+          Download this image
+        </a>
+        <button class="btn btn-outline-primary">
+          <span (click)="open('dialog2')" *ngIf="!dialog2Opened" class="fa fa-eye"></span>
+        </button>
+        <kendo-dialog
+          (close)="close('dialog2')"
+          *ngIf="dialog2Opened"
+          [height]="600"
+          [width]="800"
+          title="See document"
+        >
+          <div class="k-iframe w-100 h-100">
+            <iframe class="iframe" src="{{ file }}"></iframe>
+          </div>
+        </kendo-dialog>
+      </div>
+    </div>
+  </div>
+</div>

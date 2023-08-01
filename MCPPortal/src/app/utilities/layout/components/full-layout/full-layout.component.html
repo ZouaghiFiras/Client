@@ -1,0 +1,75 @@
+<!-- Start: Header -->
+<header #viewheader appTheme class="app-header fixed-top">
+  <nav>
+    <app-navmenu></app-navmenu>
+
+    <app-headermenu></app-headermenu>
+
+    <ul class="breadcrumbs pull-left d-none d-lg-block d-xl-block">
+      <app-bread-crumb></app-bread-crumb>
+    </ul>
+    <!-- User -->
+    <ul class="nav navbar-top-links navbar-right pull-right active">
+      <li class="profile-pic"><b> {{userRole}}</b></li>
+      <li class="dropdown">
+        <div class="btn-group">
+          <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle profile-pic dropdown-toggle"
+             data-toggle="dropdown" id="btnGroupDrop1">
+            <img alt="user-img" class="img-circle hidden-xs-down" src="../../../../assets/img/avatars/user-male.png"
+                 width="36"/>
+            <b class="hidden-xs">{{ profile?.givenName }}</b>
+            <span class="caret"></span>
+          </a>
+          <ul aria-labelledby="btnGroupDrop1" class="dropdown-menu options-menu  dropdown-menu-right dropdown-user"
+              role="menu">
+            <li role="menuitem">
+              <div class="dw-user-box">
+                <div class="u-img">
+                  <img alt="user-img" class="img-circle" onError="this.src='../../../../assets/img/avatars/user-male.png';" src="../../../../assets/img/avatars/user-male.png"
+                       width="36"/>
+                </div>
+                <div class="u-text">
+                  <h4 class="profile-cut-text">{{ profile?.givenName }}</h4>
+                  <p [routerLink]="['/dashboard/profile']" class="profile-cut-text hand" role="menuitem">
+                    {{'layout.accountManagement' | translate}}</p>
+                  <br><br>
+
+                  <button (click)="logOutUser()" class="btn btn-rounded btn-primary btn-sm logout" kendoButton primary="true"
+                          role="menuitem">{{'layout.logout' | translate}}</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <svg class="app-producttype" height="40" style="outline: 0px solid red; font-size: 1.5em; overflow: visible; font-weight: bold;"
+             width="20">
+          <text glyph-orientation-vertical="0" writing-mode="tb" x="5" y="4">{{eProductType}}</text>
+        </svg>
+      </li>
+    </ul>
+
+  </nav>
+  <!-- /nav -->
+
+</header>
+
+<!-- End: Header -->
+
+<!-- Start: App -->
+<div class="app-body">
+
+  <!-- Main content -->
+  <main class="main">
+
+    <app-save-notification [notificationMessage]="notificationMessage"
+                           [notificationParams]="notificationParams" [state]="state"></app-save-notification>
+
+    <router-outlet></router-outlet>
+
+  </main>
+
+</div>
+
+<!-- End: App -->

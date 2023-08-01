@@ -1,0 +1,22 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+<app-wizard-step [title]="title" (previousStepClicked)="goToPreviousStep()" (nextStepClicked)="goToNextStep()">
+  <form [formGroup]="additionalDocumentsForm" [attr.aria-label]="title">
+    <section>
+      <h2>Documents</h2>
+      <div class="form-group">
+        <label>Add Documents</label>
+        <input type="file" />
+        <!-- Drop files section -->
+        <!-- List of selected uploaded files -->
+        <div class="form-group">
+          <label>Comments ({{ 10000 - commentsCtrl.value.length }} characters remaining)</label>
+          <textarea formControlName="comments" class="form-control" rows="5" maxlength="10000"></textarea>
+          <div class="invalid-feedback" *ngIf="submitted && commentsCtrl?.errors?.maxlength">
+            Maximum 10000 characters allowed
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</app-wizard-step>

@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-header">
+    {{ 'Details.ATTACHMENTS' | translate }}
+  </div>
+  <div class="card-body d-flex justify-content-center">
+    <button (click)="openDialog()" class="btn btn-primary">{{'Details.ADD_DOCUMENT' | translate }}</button>
+  </div>
+  <div class="card-footer d-flex justify-content-center flex-column ced-bg-color-white">
+    <button (click)="goToDocuments()" class="btn btn-outline-primary">{{ 'Details.CONSULT_DOCUMENTS' | translate }}</button>
+  </div>
+</div>
+
+<!-- Attachments Dialog -->
+<kendo-dialog (close)="closeDialog()" *ngIf="dialogVisible" [title]="'Attachments'" [minWidth]="400">
+  <kendo-label> Select One Type :</kendo-label>
+  <kendo-dropdownlist [data]="types" [(ngModel)]="selectedType">
+    <ng-template kendoDropDownListItemTemplate let-item>
+      {{ item }}
+    </ng-template>
+  </kendo-dropdownlist>
+
+  <kendo-uploaddropzone zoneId="myZone" >
+    {{ 'Details.JPEG_PDF_ONLY' | translate }}
+  </kendo-uploaddropzone>
+  <kendo-upload
+    (remove)="onRemove($event)"
+    (success)="onUpload($event)"
+    [removeUrl]="uploadRemoveUrl"
+    [restrictions]="myRestrictions"
+    [saveUrl]="uploadSaveUrl"
+    [saveMethod]="'PUT'"
+    [autoUpload]="false"
+    [saveHeaders]="getHeaders()"
+    (select)="uploadEventHandler($event)"
+  >
+  </kendo-upload>
+  <div class="row flex-wrap" kendoDialogActions>
+    <button (click)="closeDialog()" class="btn btn-default w-50" kendoButton type="button">{{ 'Details.CANCEL' | translate }}</button>
+    <button (click)="submitAttachments()" class="btn btn-primary w-50" kendoButton>{{ 'Details.SEND' | translate }}</button>
+  </div>
+</kendo-dialog>
+
+

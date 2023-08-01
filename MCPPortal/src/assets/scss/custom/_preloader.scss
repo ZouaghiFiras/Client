@@ -1,0 +1,114 @@
+//
+// ced preloader
+//
+
+.ced-k-loader {
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#preloader-container,
+.preloader-container {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all linear 300ms;
+  -webkit-transition: all linear 300ms;
+  z-index: 999999;
+}
+
+.preloader-anim {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#preloader-container.loaded {
+  opacity: 0;
+}
+
+.spinner {
+  width: 22pt;
+  height: 4.4pt;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #333;
+  height: 100%;
+  width: 100px;
+  display: inline-block;
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect1 {
+  background-color: #56238e;
+}
+
+.spinner .rect2 {
+  background-color: #3899dd;
+}
+
+.spinner .rect3 {
+  background-color: #45890b;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    -webkit-transform: scaleX(0.4);
+  }
+  20% {
+    -webkit-transform: scaleX(1);
+  }
+}
+
+@keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    transform: scaleX(0.4);
+    -webkit-transform: scaleX(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleX(1);
+  }
+}
+
+//
+//
+//

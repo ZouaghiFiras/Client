@@ -1,0 +1,47 @@
+/* General _styles */
+
+.headers {
+  margin: 10px;
+}
+
+.file-details-section {
+  padding: 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.file-details-row {
+  margin-top: 10px;
+}
+
+.file-details-title {
+  font-weight: bold;
+  text-align: right;
+}
+
+.file-details-data {
+  padding-left: 10px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.card-title,
+.card-text {
+  text-align: center;
+}
+
+.k-icon {
+  margin: 0;
+}

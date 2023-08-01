@@ -1,0 +1,145 @@
+<div class="animated fadeIn yespadding">
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="card animated cedfadeInUp white-box">
+        <div class="card-header">
+          <strong>{{ 'profile.profile' | translate }}</strong>
+        </div>
+        <div class="card-block">
+
+          <div class="form-group">
+            <label for="company">{{ 'profile.Unique name' | translate }}</label>
+            <input [value]="profile?.uniqueName" class="k-textbox form-control" disabled="disabled"/>
+          </div>
+
+          <div class="form-group">
+            <label for="company">{{ 'profile.E-Mail address' | translate }}</label>
+            <input [value]="profile?.emailAddress" class="k-textbox form-control" disabled="disabled"/>
+          </div>
+
+          <div class="form-group">
+            <label for="company">{{ 'profile.Full name' | translate }}</label>
+            <input [value]="profile?.fullName" class="k-textbox form-control" disabled="disabled"/>
+          </div>
+
+          <div class="form-group">
+            <label for="company">{{ 'profile.Family name' | translate }}</label>
+            <input [value]="profile?.familyName" class="k-textbox form-control" disabled="disabled"/>
+          </div>
+
+          <div class="form-group">
+            <label for="company">{{ 'profile.Given name' | translate }}</label>
+            <input [value]="profile?.givenName" class="k-textbox form-control" disabled="disabled"/>
+          </div>
+
+          <div class="form-group">
+            <label for="company">{{ 'profile.IP Address' | translate }}</label>
+            <input [value]="profile?.ipAddress" class="k-textbox form-control" disabled="disabled"/>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+
+    <div class="col-md-6">
+      <div class="card animated cedfadeInUp white-box" style="">
+        <div class="card-header">
+          <strong>{{ 'profile.theme' | translate }}</strong>
+        </div>
+        <div class="card-block">
+          <div class="row">
+            <div class="col">
+              <button (click)="toggleTheme('blankThemeProps');" class="btn ced-blank"
+                      style="border: 1px solid black;">{{ 'profile.Select' | translate }}</button>
+            </div>
+
+            <div class="col">
+              <button (click)="toggleTheme('purpleThemeProps');"
+                      class="btn ced-purple">{{ 'profile.Select' | translate }}</button>
+            </div>
+
+            <div class="col">
+              <button (click)="toggleTheme('blueThemeProps');"
+                      class="btn ced-blue">{{ 'profile.Select' | translate }}</button>
+            </div>
+
+            <div class="col">
+              <button (click)="toggleTheme('greenThemeProps')"
+                      class="btn ced-green">{{ 'profile.Select' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card animated cedfadeInUp white-box" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <strong>{{ 'profile.settings' | translate }}</strong>
+        </div>
+        <div class="card-block">
+          <div class="row">
+            <div class="form-group checkbox-row col-6">
+              <label for="bread">{{ 'profile.Breadcrumbs' | translate }}</label>
+              <input (change)="breadcrumbsThemeChange($event)" [checked]="themeData.showBreadCrumbs"
+                     class="form-check-input form-control radio-checkbox"
+                     type="checkbox"/>
+            </div>
+
+            <div class="form-group checkbox-row col-6">
+              <label for="bread">{{ 'profile.PDF Preview' | translate }}</label>
+              <input (change)="pdfPreviewThemeChange($event)" [checked]="themeData.showPDFPreview"
+                     class="form-check-input form-control radio-checkbox"
+                     type="checkbox"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card animated cedfadeInUp white-box" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <strong>{{ 'profile.languages' | translate }}</strong>
+        </div>
+        <div class="card-block">
+          <div class="row">
+            <ng-container *ngFor="let language of languageData">
+              <div class="col">
+                <button (click)="changeLangage(language.value)" class="btn ced-blue">{{language.text}}</button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <div class="card animated cedfadeInUp white-box">
+        <div class="card-header">
+          <strong>{{ 'profile.token' | translate }}</strong>
+        </div>
+        <div class="card-block">
+
+          <div class="form-group">
+            <label for="company">{{ 'profile.Version' | translate }}</label>
+            <input [value]="authtoken?.ver" class="k-textbox form-control" disabled="disabled"/>
+          </div>
+
+          <div class="form-group">
+            <label for="company">{{ 'profile.Url' | translate }}</label>
+            <input [value]="authtoken?.aud" class="k-textbox form-control" disabled="disabled"/>
+          </div>
+
+          <div class="form-group">
+            <label for="company">{{ 'profile.IP Address' | translate }}</label>
+            <input [value]="authtoken?.ipAddress" class="k-textbox form-control" disabled="disabled"/>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!--/.col-->
+
+  </div>
+  <!--/.row-->
+
+</div>

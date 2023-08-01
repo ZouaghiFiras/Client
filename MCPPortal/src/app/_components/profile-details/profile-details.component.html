@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div *ngIf="loginDisplay" class="card justify-content-center">
+        <div class="card-header">
+          <h1 class="card-title">{{ 'Profile.TITLE' | translate }}</h1>
+          <button (click)="editProfile()" kendoButton look="outline" primary="true"><span
+            class="k-icon k-i-settings"></span>{{ 'Profile.EDIT' | translate }}
+          </button>
+          <button (click)="resetPassword()" kendoButton look="outline" primary="true"><span
+            class="k-icon k-i-lock"></span>{{ 'Profile.CHANGE' | translate }}
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="list-group">
+            <ng-container *ngFor="let item of dataSource">
+              <div *ngIf="item.claim === 'auth_time' || item.claim === 'given_name' || item.claim === 'emails'"
+                   class="list-group-item justify-content-between">
+                <header *ngIf="item.claim === 'auth_time'" class="ced-label-strong">Authentication Time:</header>
+                <header *ngIf="item.claim === 'given_name'" class="ced-label-strong">Your Given Name:</header>
+                <header *ngIf="item.claim === 'emails'" class="ced-label-strong">Your Email:</header>
+                <p>{{ item.claim === 'auth_time' ? (item.value * 1000 | date) : item.value }}</p>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br>  <br><br><br><br><br><br>  <br><br><br><br><br><br><br>
+</div>

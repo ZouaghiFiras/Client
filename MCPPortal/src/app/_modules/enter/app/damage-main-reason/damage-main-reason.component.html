@@ -1,0 +1,35 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+<app-wizard-step [title]="title"
+                 (previousStepClicked)="goToPreviousStep()"
+                 (nextStepClicked)="goToNextStep()"
+>
+
+  <form [formGroup]="damageMainReasonForm" [attr.aria-label]="title">
+    <section>
+      <div class="form-group">
+        <label>
+          <span>What is the main Reason of the damage?</span>
+        </label>
+        <div class="row">
+          <ng-container *ngFor="let reason of damageMainReasonNamesAndIcons">
+            <div class="col-md-3">
+              <div class="card text-center d-flex flex-column h-100">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ reason.name }}</h5>
+                  <span class="{{reason.icon}}" style="font-size: 3rem;"></span>
+                  <input type="radio" formControlName="mainReason" [value]="reason.name" (click)="selectMainReason(reason.id)">
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <span class="text-danger form-error" *ngIf="submitted && mainReasonCtrl?.errors?.required">
+          Please select an activity.
+        </span>
+      </div>
+    </section>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</app-wizard-step>
+
+

@@ -1,0 +1,86 @@
+.app-header {
+  background-color: var(--top-header-bg);
+  color: var(--top-header-text-color);
+  height: 45px;
+  border-bottom: var(--top-border-bottom);
+}
+
+.app-producttype {
+  color: var(--top-header-text-color);
+}
+
+.ced-img-logo-container {
+  background: var(--top-header-img-logo-bg);
+}
+
+.pageheader {
+  font-family: Calibri;
+  font-weight: bold;
+  font-size: 18pt;
+  color: #707070;
+}
+
+@media (inverted-colors: inverted) {
+  .pageheader {
+    color: #ffffff;
+  }
+}
+
+.formheader {
+  font-family: Calibri;
+  font-weight: bold;
+  font-size: 18pt;
+  color: #707070;
+}
+
+@media (inverted-colors: inverted) {
+  .formheader {
+    color: #ffffff;
+  }
+}
+
+.plaintext {
+  font-family: Calibri;
+  font-weight: normal;
+  font-size: 12pt;
+  color: #707070;
+}
+
+@media (inverted-colors: inverted) {
+  .plaintext {
+    color: #ffffff;
+  }
+}
+
+.subtext {
+  font-family: Calibri;
+  font-weight: lighter;
+  font-size: 10pt;
+  color: #707070;
+}
+
+@media (inverted-colors: inverted) {
+  .subtext {
+    color: #ffffff;
+  }
+}
+
+.required-star {
+  color: #3899dd;
+}
+
+.template-icon {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.button-icon {
+  background: none !important;
+  border: none !important;
+  color: #3899dd !important;
+}
+
+// blue
+.ced-prospect-blue {
+  color: #3899DD;
+}

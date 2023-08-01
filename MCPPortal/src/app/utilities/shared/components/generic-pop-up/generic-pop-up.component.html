@@ -1,0 +1,14 @@
+<kendo-dialog (close)="close('cancel')" *ngIf="opened" [height]="400"
+              [maxHeight]="700" [maxWidth]="500" [minWidth]="100" [width]="300">
+  <div *ngIf="messages.length > 1" style="margin-top: 10%;">
+    <p *ngFor="let mess of messages" class="plaintext" style="text-align: center; margin: 0px">{{mess}}</p>
+  </div>
+  <div *ngIf="messages.length == 1" style="margin-top: 10%;">
+    <p *ngFor="let mess of messages" class="formheader" style="text-align: center; margin: 0px">{{mess}}</p>
+  </div>
+  <kendo-dialog-actions>
+    <button (click)="close('no')" *ngIf="!showOk" kendoButton>{{ 'profile.no' | translate }}</button>
+    <button (click)="close('yes')" *ngIf="!showOk" kendoButton primary="true">{{ 'profile.yes' | translate }}</button>
+    <button (click)="close('Ok')" *ngIf="showOk" kendoButton primary="true">{{ 'profile.Ok' | translate }}</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

@@ -1,0 +1,116 @@
+<div class="row w-100">
+  <div *ngIf="workActivity" class="col-md-2">
+    <div class="card w-100">
+      <div class="card-header row justify-content-center align-items-center">
+        <i class="fa fa-search fa-3x"></i>
+        <h5 class="card-title mx-2">{{ 'Details.EXPERTISE' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ workActivity }}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="client" class="col-md-2">
+    <div class="card w-100">
+      <div class="card-header row justify-content-center align-items-center">
+        <i class="fa fa-user fa-3x"></i>
+        <h5 class="card-title mx-2">{{ 'Details.CLIENT' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ client }}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="coverage" class="col-md-2">
+    <div class="card w-100">
+      <div class="card-header row justify-content-center align-items-center">
+        <i class="fa fa-shield fa-3x"></i>
+        <h5 class="card-title mx-2">{{ 'Details.COVERAGE' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ coverage }}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="product" class="col-md-2">
+    <div class="card w-100">
+      <div class="card-header row justify-content-center align-items-center">
+        <i class="fa fa-suitcase fa-3x"></i>
+        <h5 class="card-title mx-2">{{ 'Details.PRODUCT' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ product }}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="intakeMethod" class="col-md-2">
+    <div class="card w-100">
+      <div class="card-header row justify-content-center align-items-center">
+        <i class="fa fa-mail-forward fa-3x"></i>
+        <h5 class="card-title mx-2">{{ 'Details.INTAKE_METHOD' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ intakeMethod }}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="cause" class="col-md-2">
+    <div class="card w-100">
+      <div class="card-header row justify-content-center align-items-center">
+        <i class="fa fa-exclamation-triangle fa-3x"></i>
+        <h5 class="card-title mx-2">{{ 'Details.CAUSE' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ cause }}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="object" class="col-md-2">
+    <div class="card w-100">
+      <div class="card-header row justify-content-center align-items-center">
+        <i class="fa fa-building fa-3x"></i>
+        <h5 class="card-title mx-2">{{ 'Details.OBJECT' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ object }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 d-flex justify-content-end align-items-center">
+    <div class="card w-100">
+      <div class="card-header row justify-content-center align-items-center">
+        <i class="fa fa-phone fa-3x"></i>
+        <h5 class="card-title mx-2">{{'Details.CONTACTMESSAGE' | translate}}</h5>
+      </div>
+      <div class="card-body">
+        <button (click)="open('dialog')" class="btn btn-primary contact1">
+          {{'Details.CONTACTBUTTON' | translate}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<kendo-dialog
+  (close)="close('dialog')"
+  *ngIf="dialogState['dialog']?.opened"
+  [height]="300"
+  [width]="400"
+  title="Contact {{ contactPerson }}"
+>
+  <form (ngSubmit)="send()" [formGroup]="emailForm">
+    <div class="form-group">
+      <kendo-label for="subject">Subject <i class="k-font-weight-light">(Standard question)</i></kendo-label>
+      <input class="form-control" formControlName="subject" rows="3"/>
+    </div>
+    <div class="form-group">
+      <kendo-label for="message">Message <i class="k-font-weight-light">(Description)</i></kendo-label>
+      <kendo-textarea class="form-control k-editor-textarea" formControlName="message" rows="3"></kendo-textarea>
+    </div>
+    <div class="button-group row flex-wrap" kendoDialogActions>
+      <button (click)="closeDialog()" class="btn btn-default w-50" kendoButton type="button">Cancel</button>
+      <button class="btn btn-primary w-50" kendoButton type="submit">Send</button>
+    </div>
+  </form>
+</kendo-dialog>

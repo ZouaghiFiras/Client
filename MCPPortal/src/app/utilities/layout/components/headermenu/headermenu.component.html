@@ -1,0 +1,38 @@
+<ul class="pull-left" id="menu">
+  <li class="brand-li">
+    <div class="brand-title"></div>
+  </li>
+  <ng-container *ngFor="let menu of menuItems">
+
+    <ng-container *ngIf="!menu.children || (menu.children && menu.children.length === 0)">
+      <li *appHasRole="menu.forRoles" class="mega-menu">
+        <a [routerLink]="menu.url" class="nav-link">{{'profile.' + menu.name | translate}}</a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="menu.children && menu.children.length > 0">
+      <li *appHasRole="menu.forRoles" class="mega-menu">
+        <a>{{'profile.' + menu.name | translate}}</a>
+        <div id="mega">
+          <ul>
+            <ng-container *ngFor="let child of menu.children">
+              <ng-container *ngIf="child.name !== 'hr'">
+                <li (click)="reset(child)" *appHasRole="child?.forRoles">
+                  <a>{{'profile.' + child.name | translate}}</a>
+                  <br/>
+                </li>
+              </ng-container>
+
+              <ng-container *ngIf="child.name == 'hr'">
+                <li>
+                  <hr class="ced-h-divider"/>
+                </li>
+              </ng-container>
+            </ng-container>
+          </ul>
+        </div>
+      </li>
+    </ng-container>
+
+  </ng-container>
+</ul>

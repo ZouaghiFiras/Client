@@ -1,0 +1,22 @@
+@import "../../../../../assets/scss/custom/variables";
+
+.bar-cmd {
+  margin: 0 !important;
+  height: 100%;
+}
+
+:host {
+  padding: 0px;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.darker-blue-on-hover:hover {
+  background-color: #2c84c4;
+}
+
+.with-b-shadow {
+  box-shadow: 0px 2px 6px $CED-graylight;
+}

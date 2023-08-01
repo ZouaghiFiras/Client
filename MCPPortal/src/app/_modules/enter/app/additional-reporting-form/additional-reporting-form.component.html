@@ -1,0 +1,18 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+<app-wizard-step [title]="title" (previousStepClicked)="goToPreviousStep()" (nextStepClicked)="goToNextStep()">
+  <form [formGroup]="additionalReportingFormForm" [attr.aria-label]="title">
+    <section>
+      <h2>Reporting Form</h2>
+      <div class="form-group">
+        <label>How should the assessment be executed?</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" formControlName="reportingForm" value="Short" />
+            Short
+          </label>
+        </div>
+      </div>
+    </section>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</app-wizard-step>

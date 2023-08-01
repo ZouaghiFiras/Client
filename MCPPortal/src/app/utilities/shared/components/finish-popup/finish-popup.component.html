@@ -1,0 +1,34 @@
+<div class="interruptionPopup">
+  <kendo-dialog>
+    <div class="row interruption-pop-up-pad">
+      <div class="col-2 interruption-pop-up-pad">
+        <i
+          [ngClass]="{'fas fa-check-circle check-circle': state == 'success' ,'far fa-times-circle times-circle': state == 'error'}"></i>
+      </div>
+      <div class="col-10 interruption-pop-up-pad">
+        <p>{{message}}</p>
+
+      </div>
+    </div>
+    <div *ngIf="state =='rejected'" class="row interruption-pop-up-pad">
+      <div class="col-12">
+        <h6>vvvv</h6>
+      </div>
+    </div>
+    <div *ngIf="state =='rejected'" class="row interruption-pop-up-pad">
+      <div class="col-5 interruption-pop-up-pad div-align">
+        <p>vvvv</p>
+      </div>
+
+    </div>
+
+    <kendo-dialog-actions>
+      <!-- <button kendoButton *ngIf="state == 'error'" (click)="cancel()" [primary]="true">vv</button> -->
+      <button (click)="reject()" class="btn ced-blue" kendoButton>{{ state == 'checkBeforeSaving' ? ('profile.' +
+      buttonsName[1] | translate) : 'profile.Ok'| translate }}</button>
+      <button (click)="accept()" *ngIf="state == 'checkBeforeSaving'" class="btn ced-blue"
+              kendoButton>{{'profile.' + buttonsName[0] | translate}}</button>
+
+    </kendo-dialog-actions>
+  </kendo-dialog>
+</div>

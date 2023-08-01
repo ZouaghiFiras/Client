@@ -1,0 +1,236 @@
+<app-wizard-step [title]="title" (previousStepClicked)="goToPreviousStep()" (nextStepClicked)="goToNextStep()">
+  <form [formGroup]="objectForm" [attr.aria-label]="title">
+    <section>
+      <h2>OBJECT DATA</h2>
+<!--      <div class="form-group">-->
+<!--        <label>-->
+<!--          <span>Main Object *</span>-->
+<!--          <select class="form-control" formControlName="mainObject" >-->
+<!--            <option value="">Select a Main object</option>-->
+<!--            <ng-container *ngFor="let item of intakeObjects?.insuranceObjects">-->
+<!--              <option *ngIf="item.isMain"  [value]="item.name">{{ item.name }}</option>-->
+<!--              <ng-container  *ngFor="let child of item.children" >-->
+<!--                <option *ngIf="child.isMain" [value]="child.name">{{ child.name }}</option>-->
+<!--              </ng-container>-->
+<!--            </ng-container>-->
+<!--          </select>-->
+<!--        </label>-->
+<!--        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('mainObject').errors?.required">-->
+<!--          Main Object is required-->
+<!--        </span>-->
+<!--      </div>-->
+
+      <div class="form-group">
+        <label>
+          <span>Main Object *</span>
+          <select class="form-control" formControlName="object">
+            <option value="">Select an object</option>
+            <option *ngFor="let item of intakeObjects?.insuranceObjects" [value]="item.name">{{ item.name }}</option>
+          </select>
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('object').errors?.required">
+          Object is required
+        </span>
+      </div>
+<!--      <div class="form-group">-->
+<!--        <label>-->
+<!--          <span>Object *</span>-->
+<!--          <select class="form-control" formControlName="object">-->
+<!--            <option value="">Select an object</option>-->
+<!--            <option *ngFor="let item of intakeObjects?.insuranceObjects" [value]="item.name">{{ item.name }}</option>-->
+<!--          </select>-->
+<!--        </label>-->
+<!--        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('object').errors?.required">-->
+<!--          Object is required-->
+<!--        </span>-->
+<!--      </div>-->
+
+      <div class="form-group">
+        <label>
+          <span>Object *</span>
+          <select class="form-control" formControlName="subObject" >
+            <ng-container *ngFor="let object of intakeObjects?.insuranceObjects">
+              <option  *ngFor="let child of object.children" [value]="child.name">{{ child.name }}</option>
+            </ng-container>
+          </select>
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('subObject').errors?.required">
+          Sub Object is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Object Located At Party Address *</span>
+        </label>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="yes" formControlName="locatedAtPartyAddress">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="no" formControlName="locatedAtPartyAddress">
+            No
+          </label>
+        </div>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('locatedAtPartyAddress').errors?.required">
+          This Field is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Party *</span>
+          <select class="form-control" formControlName="party">
+            <!-- Options for Party dropdown -->
+          </select>
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('party').errors?.required">
+          Party is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Damage Location</span>
+          <input type="text" class="form-control" formControlName="damageLocation">
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('damageLocation').errors?.required">
+          Damage Location is required
+        </span>
+      </div>
+    </section>
+
+    <section>
+      <h2>POLICY DATA</h2>
+      <div class="form-group">
+        <label>
+          <span>Coverage *</span>
+          <select class="form-control" formControlName="coverage" >
+            <option value="">Select a coverage</option>
+            <option *ngFor="let cov of intakeSubCoverages?.subCoverages" [value]="cov.name">{{ cov.name }}</option>
+          </select>
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('coverage').errors?.required">
+          Coverage is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Policy Number *</span>
+          <input type="text" class="form-control" formControlName="policyNumber">
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('policyNumber').errors?.required">
+          Policy Number is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Deductible Excess *</span>
+          <input type="text" class="form-control" formControlName="deductibleExcess">
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('deductibleExcess').errors?.required">
+          Deductible Excess is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Insured Amount</span>
+          <input type="text" class="form-control" formControlName="insuredAmount">
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('insuredAmount').errors?.required">
+          Insured Amount is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Policy Conditions</span>
+          <select class="form-control" formControlName="policyConditions" >
+            <!--             Options for Policy Duration dropdown -->
+            <option *ngFor="let option of conditionList?.options" value="{{option.name}}">{{option.name}}</option>
+          </select>
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('policyConditions').errors?.required">
+          Policy Conditions is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Deed Of Assignment</span>
+          <select class="form-control" formControlName="deedOfAssignment">
+            <!-- Options for Deed Of Assignment dropdown -->
+
+              <option *ngFor="let option of activityOptionsList?.options" [value]="option.name">{{ option.name }}</option>
+
+          </select>
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('deedOfAssignment').errors?.required">
+          Deed Of Assignment is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" formControlName="startDateKnown">
+            Policy Start Date Known
+          </label>
+        </div>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('startDateKnown').errors?.required">
+          Policy Start Date Known is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>Policy Duration</span>
+          <select class="form-control" formControlName="policyDuration" >
+<!--             Options for Policy Duration dropdown -->
+            <option *ngFor="let option of intakePolicyDuration?.options" value="{{option.name}}">{{option.name}}</option>
+          </select>
+        </label>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('policyDuration').errors?.required">
+          Policy Duration is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" formControlName="guaranteeAgainstUnderinsurance">
+            Guarantee Against Underinsurance
+          </label>
+        </div>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('guaranteeAgainstUnderinsurance').errors?.required">
+          Guarantee Against Underinsurance is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <span>Including / Excluding VAT</span>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="ex" formControlName="includingExcludingVAT">
+            Ex
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="inc" formControlName="includingExcludingVAT">
+            Inc
+          </label>
+        </div>
+        <span class="text-danger form-error" *ngIf="submitted && objectForm.get('includingExcludingVAT').errors?.required">
+          Including / Excluding VAT is required
+        </span>
+      </div>
+    </section>
+  </form>
+</app-wizard-step>

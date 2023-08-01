@@ -1,0 +1,17 @@
+{
+  "ProductTitle": "__ProductTitle__",
+  "ProductVersion": "__ProductVersion__",
+  "ProductType": "__ProductType__",
+  "production": true,
+  "TokenName": "PROSPECT.Advice",
+  "ReturnUrlName": "PROSPECT.Advice.ReturnUrl",
+  "EntrySystem": "__EntrySystem__",
+  "AuthenticationProvider": "PROSPECT.Advice.AuthenticationProvider",
+  "LoginURL": "https://__AuthenticationApiDomain__/login?clientid=2&entrysystem=",
+  "ServiceAuthURL": "https://__AuthenticationApiDomain__/",
+  "ServicePdcURL": "https://__PdcApiDomain__/",
+  "ServiceSlaURL": "https://__SlaApiDomain__/",
+  "ServiceFrontOfficeURL": "https://__FrontOfficeApiDomain__/",
+  "ServiceSupplierMdmUrl": "https://__SupplierMdmDomain__/",
+  "ServiceMasterDataURL": "https://__MasterDataApiDomain__/"
+}

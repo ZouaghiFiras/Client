@@ -1,0 +1,38 @@
+// DIALOG LAYOUT
+.dialog-frame {
+  margin: -16px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% + 32px);
+  max-height: calc(100vh - 64px);
+
+  .dialog-frame-title {
+    color: #f6f6f8 !important;
+    background-color: $primary !important;
+    padding: 12px 16px;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .dialog-frame-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    max-width: 100%;
+    overflow: auto;
+    flex-grow: 1;
+    min-width: 100%;
+  }
+
+  .dialog-frame-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-top: 1px solid #70707026;
+  }
+}

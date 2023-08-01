@@ -1,0 +1,43 @@
+/**
+   ____ _____ ____            ____    _    ____ ____            ____   ___  _  ___
+  / ___| ____|  _ \          / ___|  / \  / ___/ ___|          |___ \ / _ \/ |/ _ \
+ | |   |  _| | | | |  _____  \___ \ / _ \ \___ \___ \   _____    __) | | | | | (_) |
+ | |___| |___| |_| | |_____|  ___) / ___ \ ___) |__) | |_____|  / __/| |_| | |\__, |
+  \____|_____|____/          |____/_/   \_\____/____/          |_____|\___/|_|  /_/
+
+*/
+@import "./custom/variables";
+
+// Font awesome
+@import "~font-awesome/scss/font-awesome.scss";
+@import "../../../node_modules/@progress/kendo-theme-default/dist/all.css";
+@import "../../../node_modules/@progress/kendo-theme-default/dist/all.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+// @import "~bootstrap/dist/css/bootstrap.min.css";
+
+// Kendo UI.
+@import "~@progress/kendo-theme-default/scss/all";
+
+@import "./custom/custom-style.scss";
+
+@import "./custom/bootswatch";
+@import "./custom/animate";
+@import "./custom/preloader";
+@import "./custom/kendo";
+@import "./custom/entry";
+@import "./custom/dashboard";
+@import "./custom/custom-dialog";
+
+@import "./custom/card";
+@import "./custom/checkbox";
+@import "./custom/model";
+@import "./custom/radio";
+@import "./custom/header";
+@import "./custom/main";
+@import "./custom/sizes";
+@import "./custom/fontawesomeicon";
+
+
+
+
+

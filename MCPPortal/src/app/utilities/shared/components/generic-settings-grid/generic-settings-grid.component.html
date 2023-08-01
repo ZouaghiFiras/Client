@@ -1,0 +1,75 @@
+<div class="options-table height-100">
+  <div class="d-flex flex-row bd-highlight" style="margin-bottom: 10px;">
+    <div class="col-md-12 bd-highlight no-padding "
+         style="display: flex; flex-direction: row-reverse; justify-content: space-between;">
+      <div class="row" style="gap: 8px;">
+        <button (click)="clearFilters()" *ngIf="filters && filters.length > 0 && clearFilter === true" class="add-btn" kendoButton
+                primary="true" type="button">
+          {{'settings.Clear Filters' | translate}}
+        </button>
+        <button (click)="getDataByFilters()" class="add-btn" kendoButton primary="true" type="button">
+          {{'settings.Submit Filters' | translate}}
+        </button>
+      </div>
+      <button (click)="open(null,'new')" class="add-btn" kendoButton primary="true" type="button">
+        {{'settings.Add new' | translate}}
+      </button>
+    </div>
+  </div>
+  <div style="height: calc(100% - 60px);">
+    <kendo-grid (dataStateChange)="dataStateChange($event)" (pageChange)="pageChange($event)" [data]="gridView" [filter]="state.filter" [filterable]="true"
+                [pageSize]="state.take" [pageable]="true"
+                [resizable]="true"
+                [skip]="state.skip" [sortable]="{  allowUnsort: true, mode: 'single'}">
+      <kendo-grid-messages pagerItems="{{'genericGrid.Items' | translate }}" pagerItemsPerPage="{{'genericGrid.Items per page' | translate }}"
+                           pagerOf="{{'genericGrid.of' | translate }}"
+                           pagerPage="{{'genericGrid.Page' | translate }}">
+      </kendo-grid-messages>
+      <kendo-grid-column *ngFor="let col of fieldsList" field="{{col.field}}" filter="{{col.filter}}"
+                         title="{{col.title  | translate}}">
+        <!-- Default columns -->
+        <kendo-grid-messages *ngIf="col.datatype === 'boolean'" filterIsFalse="{{'profile.yes' | translate}}"
+                             filterIsTrue="{{'profile.no' | translate}}">
+        </kendo-grid-messages>
+        <ng-template *ngIf="col.datatype === 'boolean'" kendoGridCellTemplate let-dataItem>
+          {{ (dataItem[col.field] ? 'profile.no' : 'profile.yes') | translate }}
+        </ng-template>
+        <ng-template *ngIf="col.datatype === 'text'" kendoGridCellTemplate let-dataItem>
+          {{dataItem[col.field]}}
+        </ng-template>
+        <ng-template *ngIf="col.datatype === 'date'" kendoGridCellTemplate let-dataItem>
+          {{dataItem[col.field] | date: 'dd-MM-yyyy' }}
+        </ng-template>
+        <ng-template *ngIf="col.datatype === 'number'" kendoGridCellTemplate let-dataItem>
+          {{dataItem[col.field]| number:'n'}}
+        </ng-template>
+        <ng-template *ngIf="col.datatype === 'decimal'" kendoGridCellTemplate let-dataItem>
+          {{dataItem[col.field] | number:'n2'}}
+        </ng-template>
+        <ng-template *ngIf="col.datatype === 'currency'" kendoGridCellTemplate let-dataItem>
+          {{dataItem[col.field] | currency:'n2'}}
+        </ng-template>
+        <!-- //Default columns -->
+      </kendo-grid-column>
+      <kendo-grid-column width="70px">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <div style="  color: #3899DD; font-size: 17px;">
+            <i (click)="open(dataItem, 'edit')" class="fas fa-pen" icons-style></i>
+          </div>
+        </ng-template>
+      </kendo-grid-column>
+      <!-- pagination -->
+      <ng-template kendoPagerTemplate let-currentPage="currentPage">
+        <kendo-pager-prev-buttons (click)="changeDataForGridFromPager(currentPage)"></kendo-pager-prev-buttons>
+        <kendo-pager-numeric-buttons (click)="changeDataForGridFromPager(currentPage)" [buttonCount]="buttonCount">
+        </kendo-pager-numeric-buttons>
+        <kendo-pager-info></kendo-pager-info>
+        <kendo-pager-next-buttons (click)="changeDataForGridFromPager(currentPage)"></kendo-pager-next-buttons>
+
+      </ng-template>
+      <ng-template kendoGridNoRecordsTemplate>
+        {{'genericGrid.No records available' | translate }}
+      </ng-template>
+    </kendo-grid>
+  </div>
+</div>

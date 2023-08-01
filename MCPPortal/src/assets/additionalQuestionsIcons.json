@@ -1,0 +1,46 @@
+[
+  {
+    "code": "AE1840",
+    "icon": "fas fa-user"
+  },
+  {
+    "code": "AE1841",
+    "icon": "fas fa-video"
+  },
+  {
+    "code": "AE1842",
+    "icon": "fas fa-phone"
+  },
+  {
+    "code": "AE1843",
+    "icon": "fas fa-desktop"
+  },
+  {
+    "code": "AE1844",
+    "icon": "fas fa-clipboard-list"
+  },
+  {
+    "code": "AE1851",
+    "icon": "fas fa-stopwatch"
+  },
+  {
+    "code": "Visit",
+    "icon": "fas fa-user"
+  },
+  {
+    "code": "RF1953",
+    "icon": "far fa-file icon"
+  },
+  {
+    "code": "RF1950",
+    "icon": "far fa-file icon"
+  },
+  {
+    "code": "RF1951",
+    "icon": "far fa-file icon"
+  },
+  {
+    "code": "RF1952",
+    "icon": "far fa-file icon"
+  }
+]

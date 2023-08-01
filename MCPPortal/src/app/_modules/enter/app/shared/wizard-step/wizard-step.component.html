@@ -1,0 +1,42 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <header class="mb-3">
+              <h1>{{ title }}</h1>
+            </header>
+            <div class="row mt-4">
+              <div class="col-12">
+                <ng-content></ng-content>
+              </div>
+            </div>
+<!--            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
+          </div>
+          <div class="card-footer ced-bg-color-white">
+            <div class="row col-12 col-md-6 justify-content-between">
+              <div class="text-center text-md-start">
+                <button id="previous-button" class="btn btn-secondary" (click)="goToPreviousStep()">
+                  <i class="material-icons">navigate_before</i> <span>Previous</span>
+                </button>
+              </div>
+              <div class="text-center text-md-end">
+                <button id="next-button" class="btn btn-primary" (click)="goToNextStep()">
+                  <span>Next</span> <i class="material-icons">navigate_next</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-footer ced-bg-color-white ced-box-shadow ">
+            <app-summary></app-summary>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

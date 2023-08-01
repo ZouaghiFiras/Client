@@ -1,0 +1,44 @@
+<kendo-stepper [steps]="steps" stepType="label" [(currentStep)]="current" [linear]="false"   style="padding-bottom: 5%"></kendo-stepper>
+<app-wizard-step [title]="title" (previousStepClicked)="goToPreviousStep()" (nextStepClicked)="goToNextStep()">
+  <form [formGroup]="additionalQuestionsForm" [attr.aria-label]="title">
+    <section>
+      <h2>Additional Questions</h2>
+      <div class="subsection">
+        <h3>Intake - General Info</h3>
+        <div class="form-group">
+          <label>Is the damage already repaired? *</label>
+          <select formControlName="damageRepaired" class="form-control" [ngClass]="{ 'is-invalid': submitted && damageRepairedCtrl?.errors?.required }">
+            <option value="Not known">Not known</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="submitted && damageRepairedCtrl?.errors?.required">
+            Is the damage already repaired? is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Is a police report available? *</label>
+          <select formControlName="policeReportAvailable" class="form-control" [ngClass]="{ 'is-invalid': submitted && policeReportAvailableCtrl?.errors?.required }">
+            <option value="Not known">Not known</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="submitted && policeReportAvailableCtrl?.errors?.required">
+            Is a police report available? is required
+          </div>
+        </div>
+      </div>
+      <div class="subsection">
+        <h3>Intake Additional Client Questionnaire</h3>
+        <div class="form-group">
+          <label>Enter client additional question ({{ 100 - clientQuestionCtrl.value.length }} characters remaining)</label>
+          <input type="text" formControlName="clientQuestion" class="form-control" maxlength="100" />
+          <div class="invalid-feedback" *ngIf="submitted && clientQuestionCtrl?.errors?.maxlength">
+            Maximum 100 characters allowed
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</app-wizard-step>

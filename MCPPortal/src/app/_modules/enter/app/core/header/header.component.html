@@ -1,0 +1,134 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="navbar-nav d-flex flex-row gap-3">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/enter/property/reporter_selection" [routerLinkActive]="['active']">
+          <span class="fa fa-list"></span>Reporter
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          *ngIf="reporterInformationGroupIsValid$ | async"
+          routerLink="/enter/property/product_activity"
+          [routerLinkActive]="['active']"
+        ><span class="fa fa-shopping-bag"></span>
+          Product
+        </a>
+        <button
+          class="nav-link btn"
+          *ngIf="!(reporterInformationGroupIsValid$ | async)"
+          disabled="disabled"
+        ><span class="fa fa-shopping-bag"></span>
+          Product
+        </button>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          *ngIf="productSubObjectGroupIsValid$ | async"
+          routerLink="/enter/property/parties"
+          [routerLinkActive]="['active']"
+        ><span class="fa fa-user"></span>
+          Party
+        </a>
+        <button
+          class="nav-link btn"
+          *ngIf="!(productSubObjectGroupIsValid$ | async)"
+          disabled="disabled"
+        ><span class="fa fa-user"></span>
+          Party
+        </button>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          *ngIf="partyGroupIsValid$ | async"
+          routerLink="/enter/property/object"
+          [routerLinkActive]="['active']"
+        ><span class="fa fa-suitcase"></span>
+          Object
+        </a>
+        <button
+          class="nav-link btn"
+          *ngIf="!(partyGroupIsValid$ | async)"
+          disabled="disabled"
+        ><span class="fa fa-suitcase"></span>
+          Object
+        </button>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          *ngIf="objectGroupIsValid$ | async"
+          routerLink="/enter/property/damage_main_reason"
+          [routerLinkActive]="['active']"
+        ><span class="fa fa-info"></span>
+          Damage
+        </a>
+        <button
+          class="nav-link btn"
+          *ngIf="!(objectGroupIsValid$ | async)"
+          disabled="disabled"
+        ><span class="fa fa-info"></span>
+          Damage
+        </button>
+      </li>
+
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          *ngIf="damageAdditionalInformationGroupIsValid$ | async"
+          routerLink="/enter/property/additional_questions"
+          [routerLinkActive]="['active']"
+        ><span class="fa fa-comment"></span>
+          Additional
+        </a>
+        <button
+          class="nav-link btn"
+          *ngIf="!(damageAdditionalInformationGroupIsValid$ | async)"
+          disabled="disabled"
+        ><span class="fa fa-comment"></span>
+          Additional
+        </button>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          *ngIf="additionalDocumentsGroupIsValid$ | async"
+          routerLink="/enter/property/appointment"
+          [routerLinkActive]="['active']"
+        ><span class="fa fa-location-arrow"></span>
+          Appointment
+        </a>
+        <button
+          class="nav-link btn"
+          *ngIf="!(additionalDocumentsGroupIsValid$ | async)"
+          disabled="disabled"
+        ><span class="fa fa-location-arrow"></span>
+          Appointment
+        </button>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          *ngIf="appointmentGroupIsValid$ | async"
+          routerLink="enter/property/summary"
+          [routerLinkActive]="['active']"
+        ><span class="fa fa-list-alt"></span>
+          Summary
+        </a>
+        <button
+          class="nav-link btn"
+          *ngIf="!(appointmentGroupIsValid$ | async)"
+          disabled="disabled"
+        ><span class="fa fa-list-alt"></span>
+          Summary
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>
+

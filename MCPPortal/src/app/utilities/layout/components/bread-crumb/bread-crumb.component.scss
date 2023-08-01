@@ -1,0 +1,44 @@
+::ng-deep .breadcrumbs {
+  background: none;
+  border: none;
+}
+
+::ng-deep .breadcrumbs .k-breadcrumb-link,
+::ng-deep .breadcrumbs .k-breadcrumb-root-link {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  display: block;
+  font-family: "Roboto", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+  sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  height: 45px;
+  line-height: 45px;
+  outline-width: 0px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 0px;
+  text-align: left;
+  text-decoration: rgb(0, 0, 0);
+  text-decoration-color: rgb(0, 0, 0);
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+}
+
+::ng-deep .breadcrumbs .k-breadcrumb-root-link:hover,
+::ng-deep .k-breadcrumb-root-link.k-state-hover,
+::ng-deep .breadcrumbs .k-breadcrumb-link:hover,
+::ng-deep .breadcrumbs.k-breadcrumb-root-link:hover {
+  background-color: #1abc9c;
+  color: white;
+}
+
+::ng-deep .breadcrumbs .k-state-disabled {
+  background-color: #3498db !important;
+  color: white !important;
+}

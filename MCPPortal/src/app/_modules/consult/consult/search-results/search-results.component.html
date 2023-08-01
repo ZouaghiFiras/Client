@@ -1,0 +1,135 @@
+<div class="container-fluid p-1 m-1 bg-white shadow">
+  <div class="row justify-content-around">
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-data"></span>
+        {{'SearchResults.ALL' | translate}}({{getNumberOfAssignments(1)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-clock"></span>
+        {{'SearchResults.WORK_IN_PROGRESS' | translate}}({{getNumberOfAssignments(2)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-calendar"></span>
+        {{'SearchResults.APPOINTMENT_VISITS' | translate}}({{getNumberOfAssignments(3)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-check-outline"></span>
+        {{'SearchResults.TO_VISIT' | translate}}({{getNumberOfAssignments(4)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-page-properties"></span>
+        {{'SearchResults.EXPERTISE' | translate}}({{getNumberOfAssignments(5)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-search"></span>
+        {{'SearchResults.TO_CHECK' | translate}}({{getNumberOfAssignments(6)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-delete"></span>
+        {{'SearchResults.CANCELLED' | translate}}({{getNumberOfAssignments(7)}})
+      </div>
+    </div>
+    <div class="col">
+      <div class="p-2 border rounded d-flex align-items-center">
+        <span class="k-icon k-i-check-circle"></span>
+        {{'SearchResults.CLOSED' | translate}}({{getNumberOfAssignments(8)}})
+      </div>
+    </div>
+  </div>
+  <div class="card m-1 shadow nopadding">
+    <div class="card-header bg-white d-flex justify-content-between">
+      <h3 class="text-gray-dark font-weight-bold">{{'SearchResults.TITLE'|translate}}</h3>
+    </div>
+    <div class="card-body d-flex justify-content-center">
+      <app-empty-results *ngIf="empty"></app-empty-results>
+      <!-- Grid configuration -->
+      <kendo-grid (dataStateChange)="dataStateChange($event)"
+                  (selectionChange)="onSelectionChange($event)"
+                  *ngIf="!empty"
+                  [data]="gridData"
+                  [kendoGridBinding]="gridData"
+                  [pageSize]="state.take"
+                  [scrollable]="'scrollable'"
+                  [filterable]="true"
+                  [(filter)]="state.filter"
+                  [sortable]="true"
+                  [(sort)]="state.sort"
+                  [pageable]="{pageSizes: [15,30,50,100,150,200]}"
+                  [reorderable]="true"
+                  [selectable]="true"
+                  [skip]="state.skip">
+        <ng-template kendoGridToolbarTemplate>
+          <button type="button" kendoButton kendoGridPDFCommand [icon]="iconPDF">
+            <span class="k-icon k-i-pdf"></span>Export to PDF
+          </button>
+          <button type="button" kendoButton kendoGridExcelCommand [icon]="iconExcel">
+          <span class="k-icon k-i-excel"></span>Export to Excel
+        </button>
+        </ng-template>
+        <kendo-grid-column field="assignmentNumber"
+                           title="{{ 'SearchResults.ASSIGNMENT_NUM' | translate }}"></kendo-grid-column>
+        <kendo-grid-column field="damageDate" title="{{ 'SearchResults.DAMAGE_DATE' | translate }}"></kendo-grid-column>
+        <kendo-grid-column field="orderNumber" title="{{ 'SearchResults.ORDER_NUM' | translate }}"></kendo-grid-column>
+        <kendo-grid-column field="caseNumber" title="{{ 'SearchResults.CASE_NUM' | translate }}"></kendo-grid-column>
+        <kendo-grid-column field="involvedParty"
+                           title="{{ 'SearchResults.INVOLVED_PARTY' | translate }}"></kendo-grid-column>
+        <kendo-grid-column field="status" title="{{'SearchResults.STATUS'|translate}}"></kendo-grid-column>
+        <kendo-grid-column field="department" title="{{'SearchResults.DEPARTMENT'|translate}}"></kendo-grid-column>
+        <kendo-grid-pdf
+          fileName="Dossier_Assignments_Report.pdf"
+          [allPages]="true"
+          paperSize="A4"
+          [repeatHeaders]="true"
+          [landscape]="true"
+        >
+          <kendo-grid-pdf-margin
+            top="2cm"
+            left="1cm"
+            right="1cm"
+            bottom="2cm"
+          ></kendo-grid-pdf-margin>
+
+          <ng-template
+            kendoGridPDFTemplate
+            let-pageNum="pageNum"
+            let-totalPages="totalPages"
+          >
+            <div class="page-template">
+              <div class="header">
+                <div style="float: right">
+                  Page {{ pageNum }} of {{ totalPages }}
+                </div>
+                <div style="text-align: center; font-weight: bold; margin-top: 10px;">
+                  Dossier Assignments Report
+                </div>
+              </div>
+              <div class="footer">
+                <div style="text-align: center;">
+                  Page {{ pageNum }} of {{ totalPages }}
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </kendo-grid-pdf>
+
+        <kendo-grid-excel
+          fileName="Dossier_Assignments_Report.xlsx"
+        ></kendo-grid-excel>
+
+      </kendo-grid>
+    </div>
+  </div>
+</div>

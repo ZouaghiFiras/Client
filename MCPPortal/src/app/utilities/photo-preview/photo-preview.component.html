@@ -1,0 +1,27 @@
+<div class="flex-wrap d-flex justify-content-around align-items-center">
+  <!-- Display empty photos component when data is empty -->
+  <app-empty-photos *ngIf="!data.length"></app-empty-photos>
+
+  <!-- Display cards for each item in data -->
+  <div *ngIf="data.length">
+    <div *ngFor="let item of data" class="card">
+      <div class="card-img">
+        <img (click)="open('dialog')" *ngIf="!dialogOpened" src="{{ item }}" width="300">
+      </div>
+      <div class="card-footer ced-bg-color-white">
+        <p class="ced-label-strong small">{{ item }}</p>
+      </div>
+      <!-- Dialog for displaying photo in a larger view -->
+      <kendo-dialog
+        (close)="close('dialog')"
+        *ngIf="dialogOpened"
+        [minWidth]="600"
+        [width]="800"
+        title="See Photo"
+      >
+        <img alt="photo attachment" src="{{ item }}" width="300">
+      </kendo-dialog>
+    </div>
+
+  </div>
+</div>
